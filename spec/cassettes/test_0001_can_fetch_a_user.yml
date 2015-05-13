@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://atlas.hashicorp.com/api/v1/user/atlas-ruby?access_token=test-token
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Atlas-Ruby/0.1.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      cache-control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 13 May 2015 11:38:16 GMT
+      etag:
+      - '"ed637d0f4c30e1a5c66901df5eaad912"'
+      Server:
+      - Apache/2.2.22 (Ubuntu) Phusion_Passenger/5.0.6
+      Status:
+      - 200 OK
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger 5.0.6
+      x-request-id:
+      - 1a55ff7c-1136-434c-9ce7-6902bd5db005
+      x-runtime:
+      - '0.658763'
+      x-xss-protection:
+      - 1; mode=block
+      Content-Length:
+      - '397'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"username":"atlas-ruby","avatar_url":"https://www.gravatar.com/avatar/db083f712142474c96cb2b828d6ad8c9?s=460&d=mm","profile_html":"<p>A
+        test account for the <a href=\"https://github.com/nickcharlton/atlas-ruby\">Atlas
+        Ruby client</a>.</p>\n","profile_markdown":"A test account for the [Atlas
+        Ruby client][ruby-client].\r\n\r\n[ruby-client]: https://github.com/nickcharlton/atlas-ruby","boxes":[]}'
+    http_version: 
+  recorded_at: Wed, 13 May 2015 11:38:17 GMT
+recorded_with: VCR 2.9.3
