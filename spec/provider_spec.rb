@@ -25,7 +25,7 @@ describe Atlas::BoxProvider do
     hash = { 'name' => 'vmware', 'hosted' => '', 'hosted_token' => '',
              'original_url' => '', 'download_url' => '', 'created_at' => '',
              'updated_at' => '' }
-    user = Atlas::BoxProvider.from_json(hash)
+    user = Atlas::BoxProvider.new(hash)
 
     user.wont_be_nil
     user.name.must_equal 'vmware'

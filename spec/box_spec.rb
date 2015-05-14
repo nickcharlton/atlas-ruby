@@ -25,10 +25,10 @@ describe Atlas::Box do
              'short_description' => '', 'description_html' => '',
              'description_markdown' => '', 'username' => 'atlas-ruby',
              'private' => '', 'created_at' => '', 'updated_at' => '' }
-    box = Atlas::Box.from_json(hash)
+    box = Atlas::Box.new(hash)
 
     box.wont_be_nil
     box.name.must_equal 'example'
-    box.tag.must_equal 'atlas-ruby/example'
+    box.username.must_equal 'atlas-ruby'
   end
 end

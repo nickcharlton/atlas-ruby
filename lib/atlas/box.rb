@@ -1,37 +1,28 @@
 module Atlas
   # Representation and handling of Box objects.
-  class Box
-    attr_accessor :name, :tag, :short_description, :description_markdown,
-                  :description_html, :username, :private, :created_at,
-                  :updated_at, :current_version, :versions
+  class Box < Resource
+    attr_accessor :name, :username, :short_description, :description,
+                  :is_private, :current_version, :versions
 
     def self.load(username, name)
       response = Atlas.client.get("/box/#{username}/#{name}")
 
-      from_json(JSON.parse(response.body))
+      new(JSON.parse(response.body))
     end
 
-    def self.from_json(json)
-      box = new
-      box.name = json['name']
-      box.tag = json['tag']
-      box.short_description = json['short_description']
-      box.description_markdown = json['description_markdown']
-      box.description_html = json['description_html']
-      box.username = json['username']
-      box.private = json['private']
-      box.created_at = json['created_at']
-      box.updated_at = json['updated_at']
+    def initialize(hash = {})
+      hash['is_private'] = hash['private']
+      hash['description'] = hash['description_markdown']
 
-      if json['current_version']
-        box.current_version = BoxVersion.from_json(json['current_version'])
-      end
+      super(hash)
+    end
 
-      if json['versions']
-        box.versions = json['versions'].collect { |v| BoxVersion.from_json(v) }
-      end
+    def current_version=(o)
+      @current_version = BoxVersion.new(o) if o.is_a? Hash
+    end
 
-      box
+    def versions=(hash)
+      @versions = hash.collect { |v| BoxVersion.new(v) }
     end
   end
 end
