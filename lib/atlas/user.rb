@@ -1,24 +1,26 @@
 module Atlas
   # Representation and handling of User objects.
-  class User
-    attr_accessor :username, :avatar_url, :profile_html, :profile_markdown,
-                  :boxes
+  class User < Resource
+    attr_accessor :username, :avatar_url, :profile
 
     def self.load(name)
       response = Atlas.client.get("/user/#{name}")
 
-      from_json(JSON.parse(response.body))
+      new(JSON.parse(response.body))
     end
 
-    def self.from_json(json)
-      user = new
-      user.username = json['username']
-      user.avatar_url = json['avatar_url']
-      user.profile_html = json['profile_html']
-      user.profile_markdown = json['profile_markdown']
-      user.boxes = json['boxes'].collect { |box| Box.from_json(box) }
+    def initialize(hash = {})
+      hash['profile'] = hash['profile_markdown']
 
-      user
+      super(hash)
+    end
+
+    def boxes
+      @boxes ||= []
+    end
+
+    def boxes=(hash)
+      @boxes = hash.collect { |v| Box.from_json(v) }
     end
   end
 end

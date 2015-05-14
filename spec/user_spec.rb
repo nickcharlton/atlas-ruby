@@ -24,7 +24,7 @@ describe Atlas::User do
   it 'can build a user from a json response' do
     hash = { 'username' => 'user', 'avatar_url' => '', 'profile_html' => '',
              'profile_markdown' => '', 'boxes' => [] }
-    user = Atlas::User.from_json(hash)
+    user = Atlas::User.new(hash)
 
     user.wont_be_nil
     user.username.must_equal 'user'
