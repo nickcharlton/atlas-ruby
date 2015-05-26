@@ -15,6 +15,18 @@ module Atlas
       request(:get, url, opts)
     end
 
+    def put(url, opts = {})
+      request(:put, url, opts)
+    end
+
+    def post(url, opts = {})
+      request(:post, url, opts)
+    end
+
+    def delete(url, opts = {})
+      request(:delete, url, opts)
+    end
+
     private
 
     def request(method, path, opts = {})
