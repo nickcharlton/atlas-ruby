@@ -5,6 +5,11 @@ module Atlas
       hash.each { |k, v| send("#{k}=", v) if respond_to?("#{k}=") }
     end
 
+    def update_with_response(o)
+      hash = JSON.parse(o)
+      hash.each { |k, v| send("#{k}=", v) if respond_to?("#{k}=") }
+    end
+
     def to_hash
       attrs = instance_variables.map { |v| v.to_s.sub(/^@/, '') }
       Hash[attrs.select { |v| respond_to? v }.map { |v| [v.to_sym, send(v)] }]
