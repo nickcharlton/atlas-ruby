@@ -27,8 +27,9 @@ module Atlas
       query.merge!(access_token: @access_token)
 
       connection = Excon.new(@url)
-      connection.request(method: method, path: "/api/v1#{path}",
-                         body: body, query: query, headers: headers)
+      connection.request(expects: [200, 201], method: method,
+                         path: "/api/v1#{path}", body: body, query: query,
+                         headers: headers)
     end
 
     def parse_opts(opts)
