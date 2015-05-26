@@ -2,7 +2,7 @@ module Atlas
   # Client for interacting with the Atlas API.
   class Client
     DEFAULT_HEADERS = { 'User-Agent' => "Atlas-Ruby/#{Atlas::VERSION}",
-                        'Content-Type' => 'application/x-www-form-urlencoded' }
+                        'Content-Type' => 'application/json' }
 
     attr_accessor :url
 
@@ -33,8 +33,7 @@ module Atlas
 
     def parse_opts(opts)
       body = opts.fetch(:body, nil)
-      # in our case, we want to submit any body as a form
-      body = URI.encode_www_form(body) if body && body.is_a?(Hash)
+      body = JSON.dump(body) if body && body.is_a?(Hash)
 
       query = opts.fetch(:query, {})
       headers = opts.fetch(:headers, {})
