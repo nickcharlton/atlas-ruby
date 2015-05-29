@@ -31,5 +31,25 @@ module Atlas
         BoxProvider.new({ origin: origin.merge(box_version: version) }.merge(v))
       end
     end
+
+    def save # rubocop:disable Metrics/MethodLength
+      body = { version: to_hash }
+
+      # providers are saved seperately
+      body[:version].delete(:providers)
+
+      begin
+        response = Atlas.client.put("/box/#{@username}/#{@box_name}/version/" \
+                                    "#{version}", body: body)
+      rescue Excon::Errors::NotFound
+        response = Atlas.client.post("/box/#{@username}/#{@box_name}/versions",
+                                     body: body)
+      end
+
+      # trigger the same on the providers
+      providers.each(&:save) if providers
+
+      update_with_response(response.body, [:providers])
+    end
   end
 end

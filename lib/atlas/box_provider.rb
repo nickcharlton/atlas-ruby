@@ -30,10 +30,9 @@ module Atlas
       @box_version = hash[:box_version]
     end
 
-    def save # rubocop:disable Metrics/AbcSize
+    def save
       body = { provider: to_hash }
 
-      # update or create the box
       begin
         response = Atlas.client.put("/box/#{@username}/#{@box_name}/version/" \
                                     "#{@box_version}/provider/#{name}",

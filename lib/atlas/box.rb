@@ -30,5 +30,24 @@ module Atlas
         )
       end
     end
+
+    def save
+      body = { box: to_hash }
+
+      # versions are saved seperately
+      body[:box].delete(:versions)
+
+      # update or create the box
+      begin
+        response = Atlas.client.put("/box/#{username}/#{name}", body: body)
+      rescue Excon::Errors::NotFound
+        response = Atlas.client.post('/boxes', body: body)
+      end
+
+      # trigger the same on versions
+      versions.each(&:save) if versions
+
+      update_with_response(response.body, [:versions])
+    end
   end
 end
