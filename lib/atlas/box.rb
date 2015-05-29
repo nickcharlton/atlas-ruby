@@ -17,12 +17,18 @@ module Atlas
       super(hash)
     end
 
-    def current_version=(o)
-      @current_version = BoxVersion.new(o) if o.is_a? Hash
+    def current_version=(hash)
+      @current_version = BoxVersion.new(
+        { origin: { username: username, box_name: name } }.merge(hash)
+      ) if hash.is_a? Hash
     end
 
     def versions=(hash)
-      @versions = hash.collect { |v| BoxVersion.new(v) }
+      @versions = hash.collect do |v|
+        BoxVersion.new(
+          { origin: { username: username, box_name: name } }.merge(v)
+        )
+      end
     end
   end
 end

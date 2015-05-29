@@ -20,7 +20,7 @@ module Atlas
     end
 
     def boxes=(hash)
-      @boxes = hash.collect { |v| Box.from_json(v) }
+      @boxes = hash.collect { |v| Box.new(v) }
     end
   end
 end

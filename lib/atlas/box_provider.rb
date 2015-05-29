@@ -8,10 +8,10 @@ module Atlas
       response = Atlas.client.get("/box/#{username}/#{name}/version/" \
                                   "#{version}/provider/#{provider}")
 
-      provider = new(JSON.parse(response.body))
-      provider.set_origin(username, name, version)
-
-      provider
+      body = JSON.parse(response.body)
+      new({ origin: { username: username,
+                      box_name: name,
+                      box_version: version } }.merge(body))
     end
 
     def initialize(hash = {})
@@ -20,10 +20,14 @@ module Atlas
       super(hash)
     end
 
-    def set_origin(username, name, version)
-      @username = username
-      @box_name = name
-      @box_version = version
+    def origin
+      { username: @username, box_name: @box_name, box_version: @box_version }
+    end
+
+    def origin=(hash)
+      @username = hash[:username]
+      @box_name = hash[:box_name]
+      @box_version = hash[:box_version]
     end
 
     def save # rubocop:disable Metrics/AbcSize
