@@ -20,25 +20,22 @@ Or install it yourself as:
 
 ## Usage
 
-`atlas` uses a simple, ActiveRecord-style approach:
+`atlas` uses an approach similar ActiveRecord:
 
 ```ruby
-# first, configure with the token from Atlas
-Atlas.configure do |config|
-    config.access_token = ''
-end
+# first, login with the token from Atlas
+Atlas.login('token')
 
 # then you can load in users (creating, updating, etc isn't supported by Atlas)
-user = Atlas::User.load('nickcharlton')
+user = Atlas::User.find('nickcharlton')
 #=> <Atlas::User username=nickcharlton...>
 
 # or access boxes, their versions and providers
-box = Atlas::Box.load('nickcharlton', 'example-box')
+box = Atlas::Box.find('nickcharlton/example-box')
 #=> <Atlas::Box name=example-box'...>
 
-# or create a new box
-new_box = Atlas::Box.create(name: 'new-box')
-new_box.save
+# or create a new version
+version = box.create(version: '1.0.0', description: 'A new box version.')
 ```
 
 It aims to support most of the functionality listed in the [Atlas API
@@ -46,7 +43,7 @@ Documentation][].
 
 ## Contributing
 
-1. Fork it ( https://github.com/nickcharlton/atlas/fork )
+1. Fork it ( https://github.com/nickcharlton/atlas-ruby/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -56,4 +53,6 @@ Documentation][].
 
 Copyright (c) 2015 Nick Charlton <nick@nickcharlton.net>
 
+[Hasicorp]: https://www.hashicorp.com
+[Atlas]: https://atlas.hashicorp.com
 [Atlas API Documentation]: https://atlas.hashicorp.com/docs
