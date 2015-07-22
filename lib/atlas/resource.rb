@@ -1,7 +1,12 @@
 module Atlas
   # Base class for representing resources.
   class Resource
-    def initialize(hash = {})
+    attr_accessor :tag, :url_builder
+
+    def initialize(tag, hash = {})
+      @tag = tag
+      @url_builder = UrlBuilder.new tag
+
       hash.each { |k, v| send("#{k}=", v) if respond_to?("#{k}=") }
     end
 
