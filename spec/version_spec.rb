@@ -1,23 +1,19 @@
-require File.expand_path 'spec_helper.rb', __dir__
+require 'spec_helper'
 
 describe Atlas::BoxVersion do
   before do
-    VCR.insert_cassette name
-
     Atlas.configure do |config|
       config.access_token = 'test-token'
     end
   end
 
-  after do
-    VCR.eject_cassette
-  end
-
   it 'can fetch a version' do
-    version = Atlas::BoxVersion.find('atlas-ruby/example/1.0.0')
+    VCR.use_cassette('can_fetch_version') do
+      version = Atlas::BoxVersion.find('atlas-ruby/example/1.0.0')
 
-    version.wont_be_nil
-    version.version.must_equal '1.0.0'
+      expect(version).not_to be_nil
+      expect(version.version).to eq '1.0.0'
+    end
   end
 
   it 'can build a provider from a json response' do
@@ -26,7 +22,7 @@ describe Atlas::BoxVersion do
              'revoke_url' => '', 'created_at' => '', 'updated_at' => '' }
     version = Atlas::BoxVersion.new('', hash)
 
-    version.wont_be_nil
-    version.version.must_equal '1.0.0'
+    expect(version).not_to be_nil
+    expect(version.version).to eq '1.0.0'
   end
 end

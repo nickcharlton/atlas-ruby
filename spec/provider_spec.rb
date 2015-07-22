@@ -1,23 +1,20 @@
-require File.expand_path 'spec_helper.rb', __dir__
+require 'spec_helper'
 
 describe Atlas::BoxProvider do
   before do
-    VCR.insert_cassette name
-
     Atlas.configure do |config|
       config.access_token = 'test-token'
     end
   end
 
-  after do
-    VCR.eject_cassette
-  end
-
   it 'can fetch a provider' do
-    provider = Atlas::BoxProvider.find 'atlas-ruby/example/1.0.0/vmware_desktop'
+    VCR.use_cassette('can_fetch_provider') do
+      provider = Atlas::BoxProvider.find(
+        'atlas-ruby/example/1.0.0/vmware_desktop')
 
-    provider.wont_be_nil
-    provider.name.must_equal 'vmware_desktop'
+      expect(provider).not_to be_nil
+      expect(provider.name).to eq 'vmware_desktop'
+    end
   end
 
   it 'can build a provider from a json response' do
@@ -26,7 +23,7 @@ describe Atlas::BoxProvider do
              'updated_at' => '' }
     user = Atlas::BoxProvider.new('', hash)
 
-    user.wont_be_nil
-    user.name.must_equal 'vmware'
+    expect(user).not_to be_nil
+    expect(user.name).to eq 'vmware'
   end
 end

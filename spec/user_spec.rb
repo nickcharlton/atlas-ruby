@@ -1,24 +1,20 @@
-require File.expand_path 'spec_helper.rb', __dir__
+require 'spec_helper'
 
 describe Atlas::User do
   before do
-    VCR.insert_cassette name
-
     Atlas.configure do |config|
       config.access_token = 'test-token'
     end
   end
 
-  after do
-    VCR.eject_cassette
-  end
-
   it 'can fetch a user' do
-    user = Atlas::User.find('atlas-ruby')
+    VCR.use_cassette('can_fetch_user') do
+      user = Atlas::User.find('atlas-ruby')
 
-    user.wont_be_nil
-    user.username.must_equal 'atlas-ruby'
-    user.boxes.must_be_kind_of Array
+      expect(user).not_to be_nil
+      expect(user.username).to eq 'atlas-ruby'
+      expect(user.boxes).to be_a Array
+    end
   end
 
   it 'can build a user from a json response' do
@@ -26,8 +22,8 @@ describe Atlas::User do
              'profile_markdown' => '', 'boxes' => [] }
     user = Atlas::User.new('', hash)
 
-    user.wont_be_nil
-    user.username.must_equal 'user'
-    user.boxes.must_be_kind_of Array
+    expect(user).not_to be_nil
+    expect(user.username).to eq 'user'
+    expect(user.boxes).to be_a Array
   end
 end

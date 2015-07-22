@@ -1,23 +1,19 @@
-require File.expand_path 'spec_helper.rb', __dir__
+require 'spec_helper'
 
 describe Atlas::Box do
   before do
-    VCR.insert_cassette name
-
     Atlas.configure do |config|
       config.access_token = 'test-token'
     end
   end
 
-  after do
-    VCR.eject_cassette
-  end
-
   it 'can fetch a box' do
-    box = Atlas::Box.find('atlas-ruby/example')
+    VCR.use_cassette('can_fetch_box') do
+      box = Atlas::Box.find('atlas-ruby/example')
 
-    box.wont_be_nil
-    box.name.must_equal 'example'
+      expect(box).not_to be_nil
+      expect(box.name).to eq 'example'
+    end
   end
 
   it 'can build a box from a json response' do
@@ -27,8 +23,8 @@ describe Atlas::Box do
              'private' => '', 'created_at' => '', 'updated_at' => '' }
     box = Atlas::Box.new('', hash)
 
-    box.wont_be_nil
-    box.name.must_equal 'example'
-    box.username.must_equal 'atlas-ruby'
+    expect(box).not_to be_nil
+    expect(box.name).to eq 'example'
+    expect(box.username).to eq 'atlas-ruby'
   end
 end
