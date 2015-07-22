@@ -11,20 +11,10 @@ module Atlas
       @access_token = opts[:access_token]
     end
 
-    def get(url, opts = {})
-      request(:get, url, opts)
-    end
-
-    def put(url, opts = {})
-      request(:put, url, opts)
-    end
-
-    def post(url, opts = {})
-      request(:post, url, opts)
-    end
-
-    def delete(url, opts = {})
-      request(:delete, url, opts)
+    %w(get put post delete).each do |m|
+      define_method m do |path, opts = {}|
+        request(m.to_sym, path, opts)
+      end
     end
 
     private
