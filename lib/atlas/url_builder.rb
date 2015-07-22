@@ -6,13 +6,7 @@ module Atlas
   class UrlBuilder
     attr_reader :tag
 
-    def initialize(tag)
-      user, box, version, provider = tag.split(%r{\/})
-
-      @tag = { user: user, box: box, version: version, provider: provider }
-    end
-
-    def url_for(user = nil, box = nil, version = nil, provider = nil)
+    def self.url_for(user = nil, box = nil, version = nil, provider = nil)
       url = ''
 
       if user && !box
@@ -28,6 +22,12 @@ module Atlas
       url
     end
 
+    def initialize(tag)
+      user, box, version, provider = tag.split(%r{\/})
+
+      @tag = { user: user, box: box, version: version, provider: provider }
+    end
+
     { user: [:user],
       box: [:user, :box],
       box_version: [:user, :box, :version],
@@ -35,7 +35,7 @@ module Atlas
       define_method "#{m}_url" do
         a.each { |e| return nil unless tag[e] }
 
-        url_for(*tag.values_at(*a))
+        UrlBuilder.url_for(*tag.values_at(*a))
       end
     end
   end
