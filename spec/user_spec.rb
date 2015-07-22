@@ -14,7 +14,7 @@ describe Atlas::User do
   end
 
   it 'can fetch a user' do
-    user = Atlas::User.load('atlas-ruby')
+    user = Atlas::User.find('atlas-ruby')
 
     user.wont_be_nil
     user.username.must_equal 'atlas-ruby'
@@ -24,7 +24,7 @@ describe Atlas::User do
   it 'can build a user from a json response' do
     hash = { 'username' => 'user', 'avatar_url' => '', 'profile_html' => '',
              'profile_markdown' => '', 'boxes' => [] }
-    user = Atlas::User.new(hash)
+    user = Atlas::User.new('', hash)
 
     user.wont_be_nil
     user.username.must_equal 'user'

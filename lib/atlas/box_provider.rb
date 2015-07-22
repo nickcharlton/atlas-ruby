@@ -4,30 +4,17 @@ module Atlas
     # Properties of the provider.
     attr_accessor :name, :url
 
-    def self.load(username, name, version, provider)
-      response = Atlas.client.get("/box/#{username}/#{name}/version/" \
-                                  "#{version}/provider/#{provider}")
+    def self.find(tag)
+      url_builder = UrlBuilder.new tag
+      response = Atlas.client.get(url_builder.box_provider_url)
 
-      body = JSON.parse(response.body)
-      new({ origin: { username: username,
-                      box_name: name,
-                      box_version: version } }.merge(body))
+      new(tag, JSON.parse(response.body))
     end
 
-    def initialize(hash = {})
+    def initialize(tag, hash = {})
       hash[:url] = hash[:download_url]
 
-      super(hash)
-    end
-
-    def origin
-      { username: @username, box_name: @box_name, box_version: @box_version }
-    end
-
-    def origin=(hash)
-      @username = hash[:username]
-      @box_name = hash[:box_name]
-      @box_version = hash[:box_version]
+      super(tag, hash)
     end
 
     def save

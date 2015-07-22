@@ -3,16 +3,17 @@ module Atlas
   class User < Resource
     attr_accessor :username, :avatar_url, :profile
 
-    def self.load(name)
-      response = Atlas.client.get("/user/#{name}")
+    def self.find(tag)
+      url_builder = UrlBuilder.new(tag)
+      response = Atlas.client.get(url_builder.user_url)
 
-      new(JSON.parse(response.body))
+      new(tag, JSON.parse(response.body))
     end
 
-    def initialize(hash = {})
+    def initialize(tag, hash = {})
       hash['profile'] = hash['profile_markdown']
 
-      super(hash)
+      super(tag, hash)
     end
 
     def boxes
@@ -20,7 +21,7 @@ module Atlas
     end
 
     def boxes=(hash)
-      @boxes = hash.collect { |v| Box.new(v) }
+      @boxes = hash.collect { |v| Box.new("#{username}/#{v['name']}", v) }
     end
   end
 end

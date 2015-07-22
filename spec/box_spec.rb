@@ -14,7 +14,7 @@ describe Atlas::Box do
   end
 
   it 'can fetch a box' do
-    box = Atlas::Box.load('atlas-ruby', 'example')
+    box = Atlas::Box.find('atlas-ruby/example')
 
     box.wont_be_nil
     box.name.must_equal 'example'
@@ -25,7 +25,7 @@ describe Atlas::Box do
              'short_description' => '', 'description_html' => '',
              'description_markdown' => '', 'username' => 'atlas-ruby',
              'private' => '', 'created_at' => '', 'updated_at' => '' }
-    box = Atlas::Box.new(hash)
+    box = Atlas::Box.new('', hash)
 
     box.wont_be_nil
     box.name.must_equal 'example'

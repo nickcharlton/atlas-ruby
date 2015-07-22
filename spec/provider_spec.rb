@@ -14,8 +14,7 @@ describe Atlas::BoxProvider do
   end
 
   it 'can fetch a provider' do
-    provider = Atlas::BoxProvider.load('atlas-ruby', 'example',
-                                       '1.0.0', 'vmware_desktop')
+    provider = Atlas::BoxProvider.find 'atlas-ruby/example/1.0.0/vmware_desktop'
 
     provider.wont_be_nil
     provider.name.must_equal 'vmware_desktop'
@@ -25,7 +24,7 @@ describe Atlas::BoxProvider do
     hash = { 'name' => 'vmware', 'hosted' => '', 'hosted_token' => '',
              'original_url' => '', 'download_url' => '', 'created_at' => '',
              'updated_at' => '' }
-    user = Atlas::BoxProvider.new(hash)
+    user = Atlas::BoxProvider.new('', hash)
 
     user.wont_be_nil
     user.name.must_equal 'vmware'

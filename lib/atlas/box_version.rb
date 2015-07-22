@@ -4,31 +4,22 @@ module Atlas
     # Properties of the version.
     attr_accessor :version, :description, :status, :providers
 
-    def self.load(username, name, version)
-      response = Atlas.client.get("/box/#{username}/#{name}/version/#{version}")
+    def self.find(tag)
+      url_builder = UrlBuilder.new tag
+      response = Atlas.client.get(url_builder.box_version_url)
 
-      body = JSON.parse(response.body)
-      new({ origin: { username: username, box_name: name } }.merge(body))
+      new(tag, JSON.parse(response.body))
     end
 
-    def initialize(hash = {})
+    def initialize(tag, hash = {})
       hash['description'] = hash['description_markdown']
 
-      super(hash)
+      super(tag, hash)
     end
 
-    def origin
-      { username: @username, box_name: @box_name }
-    end
-
-    def origin=(hash)
-      @username = hash[:username]
-      @box_name = hash[:box_name]
-    end
-
-    def providers=(hash)
-      @providers = hash.collect do |v|
-        BoxProvider.new({ origin: origin.merge(box_version: version) }.merge(v))
+    def providers=(attr)
+      @providers = attr.collect do |v|
+        BoxProvider.new("#{tag}/#{v['name']}", v)
       end
     end
 
