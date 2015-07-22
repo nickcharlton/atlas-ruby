@@ -20,7 +20,10 @@ module Atlas
     end
 
     def to_hash
-      attrs = instance_variables.map { |v| v.to_s.sub(/^@/, '') }
+      attrs = instance_variables.collect do |v|
+        %w(@tag @url_builder).include?(v.to_s) ? next : v.to_s.sub(/^@/, '')
+      end.compact!
+
       Hash[attrs.select { |v| respond_to? v }.map { |v| [v.to_sym, send(v)] }]
     end
 
