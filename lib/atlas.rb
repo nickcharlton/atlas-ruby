@@ -3,6 +3,7 @@ require 'json'
 
 require 'atlas/version'
 require 'atlas/configuration'
+require 'atlas/url_builder'
 require 'atlas/client'
 require 'atlas/resource'
 require 'atlas/box_provider'
