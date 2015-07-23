@@ -27,4 +27,13 @@ describe Atlas::Box do
     expect(box.name).to eq 'example'
     expect(box.username).to eq 'atlas-ruby'
   end
+
+  it 'can create a box' do
+    VCR.use_cassette('can_create_box') do
+      box = Atlas::Box.create(name: 'new-box')
+
+      expect(box).to be_a Atlas::Box
+      expect(box.name).to eq 'new-box'
+    end
+  end
 end

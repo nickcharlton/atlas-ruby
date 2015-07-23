@@ -11,6 +11,26 @@ module Atlas
       new(tag, JSON.parse(response.body))
     end
 
+    # Create a new Box.
+    #
+    # @param [Hash] attr attributes to create the box with
+    # @param attr [String] :name The name of the box, used to identify it.
+    # @option attr [String] :username The username to assign the box to.
+    # @option attr [String] :short_description The short description is used on
+    #   small box previews.
+    # @option attr [String] :description Markdown text used as a full-length and
+    #   in-depth description of the box.
+    # @option attr [Boolean] :is_private A boolean if the box should be private
+    #   or not.
+    #
+    # @return [Box] a newly created box.
+    def self.create(attr = {})
+      tag = "#{attr.fetch(:username, '')}/#{attr[:name]}"
+      box = new(tag, attr)
+      box.save
+      box
+    end
+
     def initialize(tag, hash = {})
       hash['is_private'] = hash['private']
       hash['description'] = hash['description_markdown']
