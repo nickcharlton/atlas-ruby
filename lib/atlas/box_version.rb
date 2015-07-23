@@ -30,10 +30,9 @@ module Atlas
       body[:version].delete(:providers)
 
       begin
-        response = Atlas.client.put("/box/#{@username}/#{@box_name}/version/" \
-                                    "#{version}", body: body)
+        response = Atlas.client.put(url_builder.box_version_url, body: body)
       rescue Excon::Errors::NotFound
-        response = Atlas.client.post("/box/#{@username}/#{@box_name}/versions",
+        response = Atlas.client.post("#{url_builder.box_url}/versions",
                                      body: body)
       end
 

@@ -21,12 +21,10 @@ module Atlas
       body = { provider: to_hash }
 
       begin
-        response = Atlas.client.put("/box/#{@username}/#{@box_name}/version/" \
-                                    "#{@box_version}/provider/#{name}",
-                                    body: body)
+        response = Atlas.client.put(url_builder.box_provider_url, body: body)
       rescue Excon::Errors::NotFound
-        response = Atlas.client.post("/box/#{@username}/#{@box_name}/version/" \
-                                     "#{@box_version}/providers", body: body)
+        response = Atlas.client.post("#{url_builder.box_version_url}/providers",
+                                     body: body)
       end
 
       update_with_response(response.body)
