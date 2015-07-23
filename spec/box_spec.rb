@@ -36,4 +36,17 @@ describe Atlas::Box do
       expect(box.name).to eq 'new-box'
     end
   end
+
+  it 'can delete a box' do
+    VCR.use_cassette('can_delete_box') do
+      allow(Atlas.client).to receive(:delete).and_call_original
+
+      box = Atlas::Box.find('nickcharlton/new-box')
+
+      response = box.delete
+
+      expect(response).to be_a Hash
+      expect(Atlas.client).to have_received(:delete)
+    end
+  end
 end
