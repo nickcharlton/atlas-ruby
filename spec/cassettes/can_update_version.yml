@@ -1,0 +1,103 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://atlas.hashicorp.com/api/v1/box/atlas-ruby/example/version/1.0.0?access_token=test-token
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Atlas-Ruby/0.1.0
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 24 Jul 2015 11:28:15 GMT
+      ETag:
+      - '"52dccf982a22340f074c4a9fa80227e2"'
+      Server:
+      - Apache/2.2.22 (Ubuntu) Phusion_Passenger/5.0.10
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger 5.0.10
+      X-Request-Id:
+      - cd558aea-129c-47f0-8134-25b943e68816
+      X-Runtime:
+      - '0.068053'
+      X-XSS-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '395'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"version":"1.0.0","status":"unreleased","description_html":null,"description_markdown":null,"created_at":"2015-07-24T11:25:32.437Z","updated_at":"2015-07-24T11:25:32.437Z","number":"1.0.0","release_url":"https://atlas.hashicorp.com/api/v1/box/atlas-ruby/example/version/1.0.0/release","revoke_url":"https://atlas.hashicorp.com/api/v1/box/atlas-ruby/example/version/1.0.0/revoke","providers":[]}'
+    http_version: 
+  recorded_at: Fri, 24 Jul 2015 11:28:28 GMT
+- request:
+    method: put
+    uri: https://atlas.hashicorp.com/api/v1/box/atlas-ruby/example/version/1.0.0?access_token=test-token
+    body:
+      encoding: UTF-8
+      string: '{"version":{"version":"1.0.0","status":"unreleased","description":"This
+        is a description"}}'
+    headers:
+      User-Agent:
+      - Atlas-Ruby/0.1.0
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 24 Jul 2015 11:28:17 GMT
+      ETag:
+      - '"f1e478d08548356de2332e64f890b243"'
+      Server:
+      - Apache/2.2.22 (Ubuntu) Phusion_Passenger/5.0.10
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger 5.0.10
+      X-Request-Id:
+      - faac93cb-0d83-4d8a-b606-dbe49fa4aedd
+      X-Runtime:
+      - '0.099334'
+      X-XSS-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '442'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"version":"1.0.0","status":"unreleased","description_html":"<p>This
+        is a description</p>\n","description_markdown":"This is a description","created_at":"2015-07-24T11:25:32.437Z","updated_at":"2015-07-24T11:28:17.654Z","number":"1.0.0","release_url":"https://atlas.hashicorp.com/api/v1/box/atlas-ruby/example/version/1.0.0/release","revoke_url":"https://atlas.hashicorp.com/api/v1/box/atlas-ruby/example/version/1.0.0/revoke","providers":[]}'
+    http_version: 
+  recorded_at: Fri, 24 Jul 2015 11:28:29 GMT
+recorded_with: VCR 2.9.3

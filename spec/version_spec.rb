@@ -25,4 +25,19 @@ describe Atlas::BoxVersion do
     expect(version).not_to be_nil
     expect(version.version).to eq '1.0.0'
   end
+
+  it 'can update an existing version' do
+    VCR.use_cassette('can_update_version') do
+      allow(Atlas.client).to receive(:put).and_call_original
+
+      version = Atlas::BoxVersion.find('atlas-ruby/example/1.0.0')
+      original = version.description
+
+      version.description = 'This is a description'
+      version.save
+
+      expect(version.description).not_to eq original
+      expect(Atlas.client).to have_received(:put)
+    end
+  end
 end
