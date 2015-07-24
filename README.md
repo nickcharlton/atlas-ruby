@@ -24,7 +24,9 @@ Or install it yourself as:
 
 ```ruby
 # first, login with the token from Atlas
-Atlas.login('token')
+Atlas.configure do |config|
+  config.access_token = 'token'
+end
 
 # then you can load in users (creating, updating, etc isn't supported by Atlas)
 user = Atlas::User.find('nickcharlton')
@@ -53,6 +55,6 @@ Documentation][].
 
 Copyright (c) 2015 Nick Charlton <nick@nickcharlton.net>
 
-[Hasicorp]: https://www.hashicorp.com
+[Hashicorp]: https://www.hashicorp.com
 [Atlas]: https://atlas.hashicorp.com
 [Atlas API Documentation]: https://atlas.hashicorp.com/docs
