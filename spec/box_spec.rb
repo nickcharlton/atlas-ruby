@@ -37,6 +37,21 @@ describe Atlas::Box do
     end
   end
 
+  it 'can update an existing box' do
+    VCR.use_cassette('can_update_box') do
+      allow(Atlas.client).to receive(:put).and_call_original
+
+      box = Atlas::Box.find('nickcharlton/new-box')
+      original = box.short_description
+
+      box.short_description = 'A short description of this box.'
+      box.save
+
+      expect(box.short_description).not_to eq original
+      expect(Atlas.client).to have_received(:put)
+    end
+  end
+
   it 'can delete a box' do
     VCR.use_cassette('can_delete_box') do
       allow(Atlas.client).to receive(:delete).and_call_original

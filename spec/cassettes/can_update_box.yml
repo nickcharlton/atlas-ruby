@@ -1,0 +1,104 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://atlas.hashicorp.com/api/v1/box/nickcharlton/new-box?access_token=test-token
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Atlas-Ruby/0.1.0
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 24 Jul 2015 10:50:02 GMT
+      ETag:
+      - '"4b33fd02a4d8013b653720a24cb56629"'
+      Server:
+      - Apache/2.2.22 (Ubuntu) Phusion_Passenger/5.0.10
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger 5.0.10
+      X-Request-Id:
+      - cfc65006-1465-4f33-8588-7be557c6d3cc
+      X-Runtime:
+      - '0.081708'
+      X-XSS-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '302'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"created_at":"2015-07-24T10:49:51.842Z","updated_at":"2015-07-24T10:49:51.842Z","tag":"nickcharlton/new-box","name":"new-box","short_description":"Something,
+        something.","description_html":null,"username":"nickcharlton","description_markdown":null,"private":false,"current_version":null,"versions":[]}'
+    http_version: 
+  recorded_at: Fri, 24 Jul 2015 10:50:14 GMT
+- request:
+    method: put
+    uri: https://atlas.hashicorp.com/api/v1/box/nickcharlton/new-box?access_token=test-token
+    body:
+      encoding: UTF-8
+      string: '{"box":{"name":"new-box","short_description":"A short description of
+        this box.","username":"nickcharlton","current_version":null,"is_private":false,"description":null}}'
+    headers:
+      User-Agent:
+      - Atlas-Ruby/0.1.0
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 24 Jul 2015 10:50:03 GMT
+      ETag:
+      - '"f288f525d60709042450f794af7efbe2"'
+      Server:
+      - Apache/2.2.22 (Ubuntu) Phusion_Passenger/5.0.10
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger 5.0.10
+      X-Request-Id:
+      - cf3ae6df-fddc-4f52-8b77-116a4745726e
+      X-Runtime:
+      - '0.081042'
+      X-XSS-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '313'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"created_at":"2015-07-24T10:49:51.842Z","updated_at":"2015-07-24T10:49:51.842Z","tag":"nickcharlton/new-box","name":"new-box","short_description":"A
+        short description of this box.","description_html":null,"username":"nickcharlton","description_markdown":null,"private":false,"current_version":null,"versions":[]}'
+    http_version: 
+  recorded_at: Fri, 24 Jul 2015 10:50:15 GMT
+recorded_with: VCR 2.9.3
