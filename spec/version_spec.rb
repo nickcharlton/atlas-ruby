@@ -65,4 +65,16 @@ describe Atlas::BoxVersion do
       expect(Atlas.client).to have_received(:delete)
     end
   end
+
+  it 'can release a version' do
+    VCR.use_cassette('can_release_version') do
+      allow(Atlas.client).to receive(:put).and_call_original
+
+      version = Atlas::BoxVersion.find('atlas-ruby/example/1.0.0')
+      version.release
+
+      expect(version.status).to eq 'active'
+      expect(Atlas.client).to have_received(:put)
+    end
+  end
 end
