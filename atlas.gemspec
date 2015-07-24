@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'A client for Hashicorp\'s Atlas.'
   spec.description   = 'A client for Hashicorp\'s Atlas.'
-  spec.homepage      = 'https://github.com/nickcharlton/atlas'
+  spec.homepage      = 'https://github.com/nickcharlton/atlas-ruby'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
