@@ -52,4 +52,17 @@ describe Atlas::BoxVersion do
       expect(Atlas.client).to have_received(:put)
     end
   end
+
+  it 'can delete a version' do
+    VCR.use_cassette('can_delete_version') do
+      allow(Atlas.client).to receive(:delete).and_call_original
+
+      version = Atlas::BoxVersion.find('atlas-ruby/example/1.0.0')
+
+      response = version.delete
+
+      expect(response).to be_a Hash
+      expect(Atlas.client).to have_received(:delete)
+    end
+  end
 end

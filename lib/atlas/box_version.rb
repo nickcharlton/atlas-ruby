@@ -83,5 +83,14 @@ module Atlas
 
       update_with_response(response.body, [:providers])
     end
+
+    # Delete the version.
+    #
+    # @return [Hash] Atlas response object.
+    def delete
+      response = Atlas.client.delete(url_builder.box_version_url)
+
+      JSON.parse(response.body)
+    end
   end
 end
