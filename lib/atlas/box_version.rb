@@ -93,6 +93,15 @@ module Atlas
       update_with_response(response.body)
     end
 
+    # Revoke the version.
+    #
+    # @return [Hash] Atlas response object.
+    def revoke
+      response = Atlas.client.put("#{url_builder.box_version_url}/revoke")
+
+      update_with_response(response.body)
+    end
+
     # Delete the version.
     #
     # @return [Hash] Atlas response object.
