@@ -26,6 +26,18 @@ describe Atlas::BoxVersion do
     expect(version.version).to eq '1.0.0'
   end
 
+  it 'can create a version' do
+    VCR.use_cassette('can_create_version') do
+      allow(Atlas.client).to receive(:post).and_call_original
+
+      version = Atlas::BoxVersion.create('atlas-ruby/example', version: '1.0.0')
+
+      expect(version).to be_a Atlas::BoxVersion
+      expect(version.version).to eq '1.0.0'
+      expect(Atlas.client).to have_received(:post)
+    end
+  end
+
   it 'can update an existing version' do
     VCR.use_cassette('can_update_version') do
       allow(Atlas.client).to receive(:put).and_call_original

@@ -23,6 +23,21 @@ module Atlas
       new(tag, JSON.parse(response.body))
     end
 
+    # Create a new version.
+    #
+    # @param [String] box_tag the box tag to create the version under.
+    # @param [Hash] attr attributes to create the version with.
+    # @param attr [String] :version The version number.
+    # @param attr [String] :description Description of the box.
+    #
+    # @return [Version] a newly created version.
+    def self.create(box_tag, attr = {})
+      tag = "#{box_tag}/#{attr[:version]}"
+      version = new(tag, attr)
+      version.save
+      version
+    end
+
     # Initialize a version from a versiontag and object hash.
     #
     # @param [String] tag the tag which represents the origin of the version.
