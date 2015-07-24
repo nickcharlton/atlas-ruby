@@ -18,6 +18,22 @@ module Atlas
       new(tag, JSON.parse(response.body))
     end
 
+    # Create a new Provider.
+    #
+    # @param [String] box_version_tag the box version tag to create the provider
+    #   under.
+    # @param [String] tag the tag which represents the origin on the provider.
+    # @param [Hash] hash the attributes for the box
+    # @param hash [String] :name The name of the provider.
+    # @param hash [String] :url An HTTP URL to the box file. Omit if uploading
+    #   with Atlas.
+    def self.create(box_version_tag, attr = {})
+      tag = "#{box_version_tag}/#{attr[:name]}"
+      provider = new(tag, attr)
+      provider.save
+      provider
+    end
+
     # Initialize a provider from a tag and object hash.
     #
     # @param [String] tag the tag which represents the origin on the provider.

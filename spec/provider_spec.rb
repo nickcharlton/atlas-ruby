@@ -27,6 +27,19 @@ describe Atlas::BoxProvider do
     expect(user.name).to eq 'vmware'
   end
 
+  it 'can create a provider' do
+    VCR.use_cassette('can_create_provider') do
+      allow(Atlas.client).to receive(:post).and_call_original
+
+      provider = Atlas::BoxProvider.create('atlas-ruby/example/1.0.0',
+                                           name: 'virtualbox')
+
+      expect(provider).to be_a Atlas::BoxProvider
+      expect(provider.name).to eq 'virtualbox'
+      expect(Atlas.client).to have_received(:post)
+    end
+  end
+
   it 'can update an existing provider' do
     VCR.use_cassette('can_update_provider') do
       allow(Atlas.client).to receive(:put).and_call_original
