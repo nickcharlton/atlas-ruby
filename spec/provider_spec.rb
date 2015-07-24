@@ -55,4 +55,17 @@ describe Atlas::BoxProvider do
       expect(Atlas.client).not_to have_received(:post)
     end
   end
+
+  it 'can delete a provider' do
+    VCR.use_cassette('can_delete_provider') do
+      allow(Atlas.client).to receive(:delete).and_call_original
+
+      provider = Atlas::BoxProvider.find('atlas-ruby/example/1.0.0/virtualbox')
+
+      response = provider.delete
+
+      expect(response).to be_a Hash
+      expect(Atlas.client).to have_received(:delete)
+    end
+  end
 end

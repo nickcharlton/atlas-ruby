@@ -1,0 +1,101 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://atlas.hashicorp.com/api/v1/box/atlas-ruby/example/version/1.0.0/provider/virtualbox?access_token=test-token
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Atlas-Ruby/0.1.0
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 24 Jul 2015 12:35:29 GMT
+      ETag:
+      - '"35436cc717c0e68525cc777d0ffacc4a"'
+      Server:
+      - Apache/2.2.22 (Ubuntu) Phusion_Passenger/5.0.10
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger 5.0.10
+      X-Request-Id:
+      - ce391fa8-82c2-4ec3-9337-965109c4d056
+      X-Runtime:
+      - '0.127931'
+      X-XSS-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '265'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"name":"virtualbox","hosted":true,"hosted_token":null,"original_url":null,"created_at":"2015-07-24T12:34:31.050Z","updated_at":"2015-07-24T12:35:05.220Z","download_url":"https://atlas.hashicorp.com/atlas-ruby/boxes/example/versions/1.0.0/providers/virtualbox.box"}'
+    http_version: 
+  recorded_at: Fri, 24 Jul 2015 12:35:41 GMT
+- request:
+    method: delete
+    uri: https://atlas.hashicorp.com/api/v1/box/atlas-ruby/example/version/1.0.0/provider/virtualbox?access_token=test-token
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Atlas-Ruby/0.1.0
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 24 Jul 2015 12:35:30 GMT
+      ETag:
+      - '"35436cc717c0e68525cc777d0ffacc4a"'
+      Server:
+      - Apache/2.2.22 (Ubuntu) Phusion_Passenger/5.0.10
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger 5.0.10
+      X-Request-Id:
+      - 09b30ffa-0cc1-4d04-b8d7-2b697653b9f2
+      X-Runtime:
+      - '0.107413'
+      X-XSS-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '265'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"name":"virtualbox","hosted":true,"hosted_token":null,"original_url":null,"created_at":"2015-07-24T12:34:31.050Z","updated_at":"2015-07-24T12:35:05.220Z","download_url":"https://atlas.hashicorp.com/atlas-ruby/boxes/example/versions/1.0.0/providers/virtualbox.box"}'
+    http_version: 
+  recorded_at: Fri, 24 Jul 2015 12:35:43 GMT
+recorded_with: VCR 2.9.3

@@ -62,5 +62,14 @@ module Atlas
 
       update_with_response(response.body)
     end
+
+    # Delete the provider.
+    #
+    # @return [Hash] Atlas response object.
+    def delete
+      response = Atlas.client.delete(url_builder.box_provider_url)
+
+      JSON.parse(response.body)
+    end
   end
 end
