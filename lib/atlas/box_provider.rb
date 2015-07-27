@@ -63,6 +63,18 @@ module Atlas
       update_with_response(response.body)
     end
 
+    # Upload a .box file for this provider.
+    #
+    # @param [File] file a File object for the file.
+    def upload(file)
+      # get the path for upload
+      response = Atlas.client.get("#{url_builder.box_provider_url}/upload")
+
+      # upload the file
+      upload_url = JSON.parse(response.body)['upload_path']
+      Excon.put(upload_url, body: file)
+    end
+
     # Delete the provider.
     #
     # @return [Hash] Atlas response object.
