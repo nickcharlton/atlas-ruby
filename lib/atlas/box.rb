@@ -92,6 +92,15 @@ module Atlas
       end
     end
 
+    # Create a version for this box.
+    #
+    # @param [Hash] attr attributes to set on the version.
+    #
+    # @return [BoxVersion] a BoxVersion representing the new version.
+    def create_version(attr)
+      BoxVersion.create(tag, attr)
+    end
+
     # Save the box.
     #
     # @return [Hash] Atlas response object.

@@ -52,6 +52,17 @@ describe Atlas::Box do
     end
   end
 
+  it 'can create a version inside a box' do
+    VCR.use_cassette('can_create_version_inside_box') do
+      box = Atlas::Box.find('atlas-ruby/example')
+
+      version = box.create_version(version: '1.1.0')
+
+      expect(version).to be_a Atlas::BoxVersion
+      expect(version.version).to eq '1.1.0'
+    end
+  end
+
   it 'can delete a box' do
     VCR.use_cassette('can_delete_box') do
       allow(Atlas.client).to receive(:delete).and_call_original
