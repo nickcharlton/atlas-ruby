@@ -53,6 +53,17 @@ describe Atlas::BoxVersion do
     end
   end
 
+  it 'can create a provider inside a version' do
+    VCR.use_cassette('can_create_provider_inside_version') do
+      version = Atlas::BoxVersion.find('atlas-ruby/example/1.1.0')
+
+      provider = version.create_provider(name: 'virtualbox')
+
+      expect(provider).to be_a Atlas::BoxProvider
+      expect(provider.name).to eq 'virtualbox'
+    end
+  end
+
   it 'can delete a version' do
     VCR.use_cassette('can_delete_version') do
       allow(Atlas.client).to receive(:delete).and_call_original

@@ -62,6 +62,15 @@ module Atlas
       end
     end
 
+    # Create a provider for this version.
+    #
+    # @param [Hash] attr attributes for the provider.
+    #
+    # @return [BoxProvider] a representation of the provider.
+    def create_provider(attr)
+      BoxProvider.create(tag, attr)
+    end
+
     # Save the version.
     #
     # @return [Hash] Atlas response object.
