@@ -35,13 +35,26 @@ end
 # then you can load in users (creating, updating, etc isn't supported by Atlas)
 user = Atlas::User.find('nickcharlton')
 #=> <Atlas::User username=nickcharlton...>
+```
 
-# or access boxes, their versions and providers
+More likely, you'll want to grab a box and work with it:
+
+```ruby
 box = Atlas::Box.find('nickcharlton/example-box')
 #=> <Atlas::Box name=example-box'...>
 
-# or create a new version
-version = box.create(version: '1.0.0', description: 'A new box version.')
+# creating a new version
+version = box.create_version(version: '1.0.0')
+#=> <Atlas::BoxVersion version: '1.0.0')
+
+# add a provider to that version
+provider = version.create_provider(name: 'virtualbox')
+
+# upload a file for the version
+provider.upload(File.open('box_name.box'))
+
+# set the version to be released
+version.release
 ```
 
 It aims to support most of the functionality listed in the [Atlas API
