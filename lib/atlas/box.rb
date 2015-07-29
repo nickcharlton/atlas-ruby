@@ -113,7 +113,7 @@ module Atlas
       # update or create the box
       begin
         response = Atlas.client.put(url_builder.box_url, body: body)
-      rescue Excon::Errors::NotFound
+      rescue Atlas::Errors::NotFoundError
         response = Atlas.client.post('/boxes', body: body)
       end
 

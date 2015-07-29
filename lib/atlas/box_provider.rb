@@ -55,7 +55,7 @@ module Atlas
 
       begin
         response = Atlas.client.put(url_builder.box_provider_url, body: body)
-      rescue Excon::Errors::NotFound
+      rescue Atlas::Errors::NotFoundError
         response = Atlas.client.post("#{url_builder.box_version_url}/providers",
                                      body: body)
       end

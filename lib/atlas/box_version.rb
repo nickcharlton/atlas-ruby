@@ -74,7 +74,7 @@ module Atlas
     # Save the version.
     #
     # @return [Hash] Atlas response object.
-    def save # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
+    def save # rubocop:disable Metrics/AbcSize
       body = { version: to_hash }
 
       # providers are saved seperately
@@ -82,7 +82,7 @@ module Atlas
 
       begin
         response = Atlas.client.put(url_builder.box_version_url, body: body)
-      rescue Excon::Errors::NotFound
+      rescue Atlas::Errors::NotFoundError
         response = Atlas.client.post("#{url_builder.box_url}/versions",
                                      body: body)
       end

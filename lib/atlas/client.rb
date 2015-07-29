@@ -1,6 +1,8 @@
 module Atlas
   # Client for interacting with the Atlas API.
   class Client
+    include Atlas::Errors
+
     DEFAULT_HEADERS = { 'User-Agent' => "Atlas-Ruby/#{Atlas::VERSION}",
                         'Content-Type' => 'application/json' }
 
@@ -19,7 +21,7 @@ module Atlas
 
     private
 
-    def request(method, path, opts = {})
+    def request(method, path, opts = {}) # rubocop:disable AbcSize, MethodLength
       body, query, headers = parse_opts(opts)
 
       # set the default headers
@@ -32,6 +34,17 @@ module Atlas
       connection.request(expects: [200, 201], method: method,
                          path: "/api/v1#{path}", body: body, query: query,
                          headers: headers)
+
+    rescue Excon::Errors::BadRequest => e
+      raise ClientError, e.response.body
+    rescue Excon::Errors::Unauthorized => e
+      raise UnauthorizedError, e.response.body
+    rescue Excon::Errors::NotFound => e
+      raise NotFoundError, e.response.body
+    rescue Excon::Errors::InternalServerError => e
+      raise ServerError, e.response.body
+    rescue Excon::Errors::Timeout => e
+      raise TimeoutError, e.message
     end
 
     def parse_opts(opts)
