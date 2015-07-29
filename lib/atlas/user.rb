@@ -7,7 +7,7 @@ module Atlas
       url_builder = UrlBuilder.new(tag)
       response = Atlas.client.get(url_builder.user_url)
 
-      new(tag, JSON.parse(response.body))
+      new(tag, response)
     end
 
     def initialize(tag, hash = {})

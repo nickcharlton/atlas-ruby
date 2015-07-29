@@ -22,7 +22,7 @@ module Atlas
       url_builder = UrlBuilder.new tag
       response = Atlas.client.get(url_builder.box_url)
 
-      new(tag, JSON.parse(response.body))
+      new(tag, response)
     end
 
     # Create a new Box.
@@ -120,16 +120,14 @@ module Atlas
       # trigger the same on versions
       versions.each(&:save) if versions
 
-      update_with_response(response.body, [:versions])
+      update_with_response(response, [:versions])
     end
 
     # Delete the box.
     #
     # @return [Hash] response body from Atlas.
     def delete
-      response = Atlas.client.delete(url_builder.box_url)
-
-      JSON.parse(response.body)
+      Atlas.client.delete(url_builder.box_url)
     end
   end
 end

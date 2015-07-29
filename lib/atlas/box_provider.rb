@@ -15,7 +15,7 @@ module Atlas
       url_builder = UrlBuilder.new tag
       response = Atlas.client.get(url_builder.box_provider_url)
 
-      new(tag, JSON.parse(response.body))
+      new(tag, response)
     end
 
     # Create a new Provider.
@@ -60,7 +60,7 @@ module Atlas
                                      body: body)
       end
 
-      update_with_response(response.body)
+      update_with_response(response)
     end
 
     # Upload a .box file for this provider.
@@ -71,7 +71,7 @@ module Atlas
       response = Atlas.client.get("#{url_builder.box_provider_url}/upload")
 
       # upload the file
-      upload_url = JSON.parse(response.body)['upload_path']
+      upload_url = response['upload_path']
       Excon.put(upload_url, body: file)
     end
 
@@ -79,9 +79,7 @@ module Atlas
     #
     # @return [Hash] Atlas response object.
     def delete
-      response = Atlas.client.delete(url_builder.box_provider_url)
-
-      JSON.parse(response.body)
+      Atlas.client.delete(url_builder.box_provider_url)
     end
   end
 end

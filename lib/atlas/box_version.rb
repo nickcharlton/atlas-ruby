@@ -20,7 +20,7 @@ module Atlas
       url_builder = UrlBuilder.new tag
       response = Atlas.client.get(url_builder.box_version_url)
 
-      new(tag, JSON.parse(response.body))
+      new(tag, response)
     end
 
     # Create a new version.
@@ -90,7 +90,7 @@ module Atlas
       # trigger the same on the providers
       providers.each(&:save) if providers
 
-      update_with_response(response.body, [:providers])
+      update_with_response(response, [:providers])
     end
 
     # Release the version.
@@ -99,7 +99,7 @@ module Atlas
     def release
       response = Atlas.client.put("#{url_builder.box_version_url}/release")
 
-      update_with_response(response.body)
+      update_with_response(response)
     end
 
     # Revoke the version.
@@ -108,16 +108,14 @@ module Atlas
     def revoke
       response = Atlas.client.put("#{url_builder.box_version_url}/revoke")
 
-      update_with_response(response.body)
+      update_with_response(response)
     end
 
     # Delete the version.
     #
     # @return [Hash] Atlas response object.
     def delete
-      response = Atlas.client.delete(url_builder.box_version_url)
-
-      JSON.parse(response.body)
+      Atlas.client.delete(url_builder.box_version_url)
     end
   end
 end

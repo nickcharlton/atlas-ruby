@@ -10,13 +10,11 @@ module Atlas
       hash.each { |k, v| send("#{k}=", v) if respond_to?("#{k}=") }
     end
 
-    def update_with_response(o, except_keys = [])
-      hash = JSON.parse(o)
-
+    def update_with_response(response, except_keys = [])
       # remove keys that shouldn't be included
-      except_keys.each { |k| hash.delete(k) }
+      except_keys.each { |k| response.delete(k) }
 
-      hash.each { |k, v| send("#{k}=", v) if respond_to?("#{k}=") }
+      response.each { |k, v| send("#{k}=", v) if respond_to?("#{k}=") }
     end
 
     def to_hash
