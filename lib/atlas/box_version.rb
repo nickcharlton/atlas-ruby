@@ -45,7 +45,9 @@ module Atlas
     # @param attr [String] :version The version number.
     # @param attr [String] :description Description of the box.
     def initialize(tag, hash = {})
-      hash['description'] = hash['description_markdown']
+      if hash.key? 'description_markdown'
+        hash['description'] = hash['description_markdown']
+      end
 
       super(tag, hash)
     end
