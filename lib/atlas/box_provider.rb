@@ -4,7 +4,7 @@ module Atlas
   # @attr_accessor [String] name The name of the provider.
   # @attr_accessor [String] download_url The url to download from.
   class BoxProvider < Resource
-    attr_accessor :name, :download_url
+    attr_accessor :name, :original_url, :download_url, :url
 
     # Find a provider by it's tag.
     #
@@ -42,7 +42,7 @@ module Atlas
     # @param hash [String] :url An HTTP URL to the box file. Omit if uploading
     #   with Atlas.
     def initialize(tag, hash = {})
-      hash[:url] = hash[:download_url]
+      hash[:url] = hash[:download_url] unless hash.key? :url
 
       super(tag, hash)
     end
