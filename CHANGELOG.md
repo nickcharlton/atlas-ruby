@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.2.1 (03/10/2015)
+
+* Fixes a bug where self-hosted box URLs wouldn't store correctly ([#1][])
+* Fixes a bug where the box version description couldn't be specified on
+  creation ([#2][]).
+
 ## 1.2.0 (29/07/2015)
 
 * Adds custom error classes and catching in the request.
@@ -16,3 +22,6 @@
 
 * Initial release; handles creating, updating, deleting boxes, versions and
   providers.
+
+[#1]: https://github.com/nickcharlton/atlas-ruby/issues/1
+[#2]: https://github.com/nickcharlton/atlas-ruby/issues/2
