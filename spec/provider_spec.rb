@@ -40,6 +40,23 @@ describe Atlas::BoxProvider do
     end
   end
 
+  it 'can create a self-hosted provider' do
+    VCR.use_cassette('can_create_self_hosted_provider') do
+      allow(Atlas.client).to receive(:post).and_call_original
+
+      url = 'http://boxes.nickcharlton.net.s3.amazonaws.com/'\
+            'trusty64-chef-vmware.box'
+      provider = Atlas::BoxProvider.create('atlas-ruby/example/1.0.0',
+                                           name: 'vmware',
+                                           url: url)
+
+      expect(provider).to be_a Atlas::BoxProvider
+      expect(provider.name).to eq 'vmware'
+      expect(provider.original_url).to eq url
+      expect(Atlas.client).to have_received(:post)
+    end
+  end
+
   it 'can update an existing provider' do
     VCR.use_cassette('can_update_provider') do
       allow(Atlas.client).to receive(:put).and_call_original
