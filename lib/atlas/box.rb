@@ -12,6 +12,7 @@ module Atlas
   class Box < Resource
     attr_accessor :name, :username, :short_description, :description,
                   :is_private, :current_version, :versions
+    date_accessor :created_at, :updated_at
 
     # Find a box by it's tag.
     #

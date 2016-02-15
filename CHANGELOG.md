@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.3.0 (unreleased)
+
+* Adds timestamps to `Box`, `BoxVersion` and `BoxProvider`.
+
 ## 1.2.1 (03/10/2015)
 
 * Fixes a bug where self-hosted box URLs wouldn't store correctly ([#1][])

@@ -19,8 +19,8 @@ describe Atlas::BoxProvider do
 
   it 'can build a provider from a json response' do
     hash = { 'name' => 'vmware', 'hosted' => '', 'hosted_token' => '',
-             'original_url' => '', 'download_url' => '', 'created_at' => '',
-             'updated_at' => '' }
+             'original_url' => '', 'download_url' => '', 'created_at' => nil,
+             'updated_at' => nil }
     user = Atlas::BoxProvider.new('', hash)
 
     expect(user).not_to be_nil

@@ -10,6 +10,7 @@ module Atlas
   class BoxVersion < Resource
     # Properties of the version.
     attr_accessor :version, :description, :status, :providers
+    date_accessor :created_at, :updated_at
 
     # Find a version by it's tag.
     #

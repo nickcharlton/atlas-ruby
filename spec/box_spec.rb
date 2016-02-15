@@ -20,7 +20,7 @@ describe Atlas::Box do
     hash = { 'name' => 'example', 'tag' => 'atlas-ruby/example',
              'short_description' => '', 'description_html' => '',
              'description_markdown' => '', 'username' => 'atlas-ruby',
-             'private' => '', 'created_at' => '', 'updated_at' => '' }
+             'private' => '', 'created_at' => nil, 'updated_at' => nil }
     box = Atlas::Box.new('', hash)
 
     expect(box).not_to be_nil

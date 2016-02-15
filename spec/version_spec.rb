@@ -19,7 +19,7 @@ describe Atlas::BoxVersion do
   it 'can build a provider from a json response' do
     hash = { 'version' => '1.0.0', 'status' => '', 'description_html' => '',
              'description_markdown' => '', 'number' => '', 'release_url' => '',
-             'revoke_url' => '', 'created_at' => '', 'updated_at' => '' }
+             'revoke_url' => '', 'created_at' => nil, 'updated_at' => nil }
     version = Atlas::BoxVersion.new('', hash)
 
     expect(version).not_to be_nil

@@ -5,6 +5,7 @@ module Atlas
   # @attr_accessor [String] download_url The url to download from.
   class BoxProvider < Resource
     attr_accessor :name, :original_url, :download_url, :url
+    date_accessor :created_at, :updated_at
 
     # Find a provider by it's tag.
     #
