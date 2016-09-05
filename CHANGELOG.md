@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 1.3.0 (15/02/2015)
+## 1.3.0 (15/02/2016)
 
 * Adds timestamps to `Box`, `BoxVersion` and `BoxProvider`.
 
