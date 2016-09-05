@@ -73,6 +73,19 @@ describe Atlas::BoxProvider do
     end
   end
 
+  it "can upload a file" do
+    VCR.use_cassette("can_upload_file") do
+      allow(Excon).to receive(:put)
+
+      file = File.open("spec/support/empty_upload_file")
+      provider = Atlas::BoxProvider.find("atlas-ruby/example/1.0.0/parallels")
+
+      provider.upload(file)
+
+      expect(Excon).to have_received(:put)
+    end
+  end
+
   it 'can delete a provider' do
     VCR.use_cassette('can_delete_provider') do
       allow(Atlas.client).to receive(:delete).and_call_original
