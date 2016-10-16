@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.4.0 (16/10/2016)
+
+* Allows providing a callback for file uploads so that it's possible to monitor
+  the upload progress ([#7][]).
+
 ## 1.3.0 (15/02/2016)
 
 * Adds timestamps to `Box`, `BoxVersion` and `BoxProvider`.
@@ -29,3 +34,4 @@
 
 [#1]: https://github.com/nickcharlton/atlas-ruby/issues/1
 [#2]: https://github.com/nickcharlton/atlas-ruby/issues/2
+[#7]: https://github.com/nickcharlton/atlas-ruby/pull/7
