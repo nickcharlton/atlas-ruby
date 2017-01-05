@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 1.5.0 (05/01/2016)
+
+* Revert the callback functionality from 1.4.0.
+    - This would never have worked as the binstore doesn't support chunked
+      encoding.
+* Add `pry` as a development dependency.
+
 ## 1.4.0 (16/10/2016)
 
 * Allows providing a callback for file uploads so that it's possible to monitor
