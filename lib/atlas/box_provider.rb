@@ -67,21 +67,13 @@ module Atlas
     # Upload a .box file for this provider.
     #
     # @param [File] file a File object for the file.
-    def upload(file, chunk_size = nil)
+    def upload(file)
+      # get the path for upload
       response = Atlas.client.get("#{url_builder.box_provider_url}/upload")
 
-      chunk_size ||= Excon.defaults[:chunk_size]
-      progress = 0
-
-      chunker = lambda do
-        progress += chunk_size
-        yield(progress, file.size) if block_given?
-
-        file.read(chunk_size).to_s
-      end
-
-      upload_url = response["upload_path"]
-      Excon.put(upload_url, request_block: chunker)
+      # upload the file
+      upload_url = response['upload_path']
+      Excon.put(upload_url, body: file)
     end
 
     # Delete the provider.
