@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: https://atlas.hashicorp.com/api/v1/box//new-box?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box//new-box?access_token=test-token
     body:
       encoding: UTF-8
       string: '{"box":{"name":"new-box","is_private":null,"description":null}}'
@@ -43,7 +43,7 @@ http_interactions:
   recorded_at: Thu, 23 Jul 2015 10:11:12 GMT
 - request:
     method: post
-    uri: https://atlas.hashicorp.com/api/v1/boxes?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/boxes?access_token=test-token
     body:
       encoding: UTF-8
       string: '{"box":{"name":"new-box","is_private":null,"description":null}}'

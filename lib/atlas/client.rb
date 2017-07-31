@@ -9,7 +9,7 @@ module Atlas
     attr_accessor :url
 
     def initialize(opts = {})
-      @url = opts[:url] || 'https://atlas.hashicorp.com'
+      @url = opts[:url] || 'https://app.vagrantup.com/'
       @access_token = opts[:access_token]
     end
 
