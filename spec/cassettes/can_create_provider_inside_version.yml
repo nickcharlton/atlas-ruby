@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://atlas.hashicorp.com/api/v1/box/atlas-ruby/example/version/1.1.0?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.1.0?access_token=test-token
     body:
       encoding: US-ASCII
       string: ''
@@ -46,12 +46,12 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"version":"1.1.0","status":"unreleased","description_html":null,"description_markdown":null,"created_at":"2015-07-27T16:58:07.437Z","updated_at":"2015-07-27T16:58:07.437Z","number":"1.1.0","release_url":"https://atlas.hashicorp.com/api/v1/box/atlas-ruby/example/version/1.1.0/release","revoke_url":"https://atlas.hashicorp.com/api/v1/box/atlas-ruby/example/version/1.1.0/revoke","providers":[]}'
+      string: '{"version":"1.1.0","status":"unreleased","description_html":null,"description_markdown":null,"created_at":"2015-07-27T16:58:07.437Z","updated_at":"2015-07-27T16:58:07.437Z","number":"1.1.0","release_url":"https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.1.0/release","revoke_url":"https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.1.0/revoke","providers":[]}'
     http_version: 
   recorded_at: Mon, 27 Jul 2015 17:07:41 GMT
 - request:
     method: put
-    uri: https://atlas.hashicorp.com/api/v1/box/atlas-ruby/example/version/1.1.0/provider/virtualbox?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.1.0/provider/virtualbox?access_token=test-token
     body:
       encoding: UTF-8
       string: '{"provider":{"name":"virtualbox"}}'
@@ -98,7 +98,7 @@ http_interactions:
   recorded_at: Mon, 27 Jul 2015 17:07:42 GMT
 - request:
     method: post
-    uri: https://atlas.hashicorp.com/api/v1/box/atlas-ruby/example/version/1.1.0/providers?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.1.0/providers?access_token=test-token
     body:
       encoding: UTF-8
       string: '{"provider":{"name":"virtualbox"}}'
@@ -142,7 +142,7 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"name":"virtualbox","hosted":true,"hosted_token":null,"original_url":null,"created_at":"2015-07-27T17:07:43.648Z","updated_at":"2015-07-27T17:07:43.648Z","download_url":"https://atlas.hashicorp.com/atlas-ruby/boxes/example/versions/1.1.0/providers/virtualbox.box"}'
+      string: '{"name":"virtualbox","hosted":true,"hosted_token":null,"original_url":null,"created_at":"2015-07-27T17:07:43.648Z","updated_at":"2015-07-27T17:07:43.648Z","download_url":"https://app.vagrantup.com/atlas-ruby/boxes/example/versions/1.1.0/providers/virtualbox.box"}'
     http_version: 
   recorded_at: Mon, 27 Jul 2015 17:07:43 GMT
 recorded_with: VCR 2.9.3

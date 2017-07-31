@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://atlas.hashicorp.com/api/v1/box/atlas-ruby/example?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/example?access_token=test-token
     body:
       encoding: US-ASCII
       string: ''
@@ -45,12 +45,12 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"created_at":"2015-05-13T14:29:39.093Z","updated_at":"2015-07-27T16:08:45.297Z","tag":"atlas-ruby/example","name":"example","short_description":"An
-        example box.","description_html":null,"username":"atlas-ruby","description_markdown":null,"private":false,"current_version":null,"versions":[{"version":"1.0.0","status":"unreleased","description_html":null,"description_markdown":null,"created_at":"2015-07-27T16:07:59.632Z","updated_at":"2015-07-27T16:08:45.296Z","number":"1.0.0","release_url":"https://atlas.hashicorp.com/api/v1/box/atlas-ruby/example/version/1.0.0/release","revoke_url":"https://atlas.hashicorp.com/api/v1/box/atlas-ruby/example/version/1.0.0/revoke","providers":[{"name":"virtualbox","hosted":true,"hosted_token":"ab2dbcba-f6b6-4f41-a8f1-a01cc3623a62","original_url":null,"created_at":"2015-07-27T16:08:45.265Z","updated_at":"2015-07-27T16:08:45.265Z","download_url":"https://atlas.hashicorp.com/atlas-ruby/boxes/example/versions/1.0.0/providers/virtualbox.box"}]}]}'
+        example box.","description_html":null,"username":"atlas-ruby","description_markdown":null,"private":false,"current_version":null,"versions":[{"version":"1.0.0","status":"unreleased","description_html":null,"description_markdown":null,"created_at":"2015-07-27T16:07:59.632Z","updated_at":"2015-07-27T16:08:45.296Z","number":"1.0.0","release_url":"https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.0.0/release","revoke_url":"https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.0.0/revoke","providers":[{"name":"virtualbox","hosted":true,"hosted_token":"ab2dbcba-f6b6-4f41-a8f1-a01cc3623a62","original_url":null,"created_at":"2015-07-27T16:08:45.265Z","updated_at":"2015-07-27T16:08:45.265Z","download_url":"https://app.vagrantup.com/atlas-ruby/boxes/example/versions/1.0.0/providers/virtualbox.box"}]}]}'
     http_version: 
   recorded_at: Mon, 27 Jul 2015 16:58:05 GMT
 - request:
     method: put
-    uri: https://atlas.hashicorp.com/api/v1/box/atlas-ruby/example/version/1.1.0?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.1.0?access_token=test-token
     body:
       encoding: UTF-8
       string: '{"version":{"version":"1.1.0","description":null}}'
@@ -97,7 +97,7 @@ http_interactions:
   recorded_at: Mon, 27 Jul 2015 16:58:06 GMT
 - request:
     method: post
-    uri: https://atlas.hashicorp.com/api/v1/box/atlas-ruby/example/versions?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/example/versions?access_token=test-token
     body:
       encoding: UTF-8
       string: '{"version":{"version":"1.1.0","description":null}}'
@@ -141,7 +141,7 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"version":"1.1.0","status":"unreleased","description_html":null,"description_markdown":null,"created_at":"2015-07-27T16:58:07.437Z","updated_at":"2015-07-27T16:58:07.437Z","number":"1.1.0","release_url":"https://atlas.hashicorp.com/api/v1/box/atlas-ruby/example/version/1.1.0/release","revoke_url":"https://atlas.hashicorp.com/api/v1/box/atlas-ruby/example/version/1.1.0/revoke","providers":[]}'
+      string: '{"version":"1.1.0","status":"unreleased","description_html":null,"description_markdown":null,"created_at":"2015-07-27T16:58:07.437Z","updated_at":"2015-07-27T16:58:07.437Z","number":"1.1.0","release_url":"https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.1.0/release","revoke_url":"https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.1.0/revoke","providers":[]}'
     http_version: 
   recorded_at: Mon, 27 Jul 2015 16:58:07 GMT
 recorded_with: VCR 2.9.3
