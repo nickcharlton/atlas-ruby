@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.6.0 (31/07/2016)
+
+* Switch to use the new Atlas API URL ([#11][])
+* Add a `.ruby-version` to specify Ruby 2.4.1.
+* Update Travis to use Ruby 2.4.1.
+
 ## 1.5.0 (05/01/2016)
 
 * Revert the callback functionality from 1.4.0.
@@ -42,3 +48,4 @@
 [#1]: https://github.com/nickcharlton/atlas-ruby/issues/1
 [#2]: https://github.com/nickcharlton/atlas-ruby/issues/2
 [#7]: https://github.com/nickcharlton/atlas-ruby/pull/7
+[#11]: https://github.com/nickcharlton/atlas-ruby/pull/11
