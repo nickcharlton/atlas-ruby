@@ -1,8 +1,6 @@
 # atlas
 
 [![Build Status](https://travis-ci.org/nickcharlton/atlas-ruby.svg?branch=master)](https://travis-ci.org/nickcharlton/atlas-ruby)
-[![Code Climate](https://codeclimate.com/github/nickcharlton/atlas-ruby/badges/gpa.svg)](https://codeclimate.com/github/nickcharlton/atlas-ruby)
-[![Test Coverage](https://codeclimate.com/github/nickcharlton/atlas-ruby/badges/coverage.svg)](https://codeclimate.com/github/nickcharlton/atlas-ruby)
 
 Atlas is a Ruby client for [Hashicorp][]'s [Atlas][].
 
