@@ -11,7 +11,7 @@ module Atlas
   # @attr_accessor [Array] versions versions associated with this box.
   class Box < Resource
     attr_accessor :name, :username, :short_description, :description,
-                  :is_private, :current_version, :versions
+                  :private, :current_version, :versions
     date_accessor :created_at, :updated_at
 
     requires :username, :name, :short_description, :description
@@ -119,7 +119,9 @@ module Atlas
       begin
         response = Atlas.client.put(url_builder.box_url, body: body)
       rescue Atlas::Errors::NotFoundError
-        response = Atlas.client.post('/boxes', body: body)
+        body[:box].replace_key!(:private, :is_private)
+
+        response = Atlas.client.post("/boxes", body: body)
       end
 
       # trigger the same on versions

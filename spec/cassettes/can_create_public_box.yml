@@ -2,11 +2,11 @@
 http_interactions:
 - request:
     method: put
-    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/new-public-box?access_token=test-token
     body:
       encoding: UTF-8
-      string: '{"box":{"name":"new-box","username":"atlas-ruby","short_description":"A
-        new box","description":"A new box"}}'
+      string: '{"box":{"name":"new-public-box","username":"atlas-ruby","short_description":"A
+        new box","description":"A new box","private":false}}'
     headers:
       User-Agent:
       - Atlas-Ruby/1.6.0
@@ -20,7 +20,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Sun, 18 Mar 2018 21:19:13 GMT
+      - Sun, 18 Mar 2018 21:28:52 GMT
       Connection:
       - keep-alive
       X-Frame-Options:
@@ -36,26 +36,26 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - _atlas_session_data=UDR3aDdoTEZ0WEZoNDU5S2c1dGJ1TjIvTVMxZG5BekZpQkJ3Tk1lSlEwZXlhVmYra0hTdlpEeUplU1NuSk9PVEtyU3FCSElzL1hGSHMvVzFYc0l4Rnc9PS0tVHE1NkszWXRtaFRKdlUyL0JaZ0lpQT09--7e3200a05bebac91ec72fee4809d2d794a71f8e3;
-        path=/; expires=Tue, 17 Apr 2018 21:19:14 -0000; secure; HttpOnly
+      - _atlas_session_data=dWNUamhmaFhkZ1JQUVUvWDBMTlBGcGl3RExzRG5VWjlxWEF3V3dYUTJ5WGdiVGx5N09SRDJmRFVzUklkVEtSbmkxOFV0WU9xMkpNVW5zcFRhSmpiL3c9PS0td05EOE1VUk5mUDZmZDdFcHlhRWxodz09--670219f79771c84a6194d03232312d03ff24ee9f;
+        path=/; expires=Tue, 17 Apr 2018 21:28:52 -0000; secure; HttpOnly
       X-Request-Id:
-      - e33beed2-9269-4175-81a3-9594d7304ef8
+      - 2fcd144b-96bd-4ed4-a2f6-2af51357b068
       X-Runtime:
-      - '0.269062'
+      - '0.235631'
       Via:
       - 1.1 vegur
     body:
       encoding: ASCII-8BIT
       string: '{"errors":["Resource not found!"],"success":false}'
     http_version: 
-  recorded_at: Sun, 18 Mar 2018 21:19:14 GMT
+  recorded_at: Sun, 18 Mar 2018 21:28:52 GMT
 - request:
     method: post
     uri: https://app.vagrantup.com/api/v1/boxes?access_token=test-token
     body:
       encoding: UTF-8
-      string: '{"box":{"name":"new-box","username":"atlas-ruby","short_description":"A
-        new box","description":"A new box"}}'
+      string: '{"box":{"name":"new-public-box","username":"atlas-ruby","short_description":"A
+        new box","description":"A new box","is_private":false}}'
     headers:
       User-Agent:
       - Atlas-Ruby/1.6.0
@@ -69,7 +69,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Sun, 18 Mar 2018 21:19:25 GMT
+      - Sun, 18 Mar 2018 21:28:58 GMT
       Connection:
       - keep-alive
       X-Frame-Options:
@@ -83,23 +83,23 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"e311e27a7f8fd0450f7250afafa8ec51"
+      - W/"47ea3ce056ab91ae14a58c1d62261389"
       Cache-Control:
       - max-age=0, private, must-revalidate
       Set-Cookie:
-      - _atlas_session_data=L1RHYVlLWXNzNzNzRVQ3emRVSm9vYzUvYUVlZEpCNTYwM1A4Zk55K1BHYz0tLU5IbzNVaE1GZFpxN3FvTzZwSWNFeVE9PQ%3D%3D--f6473b5977dae5c7aa0f1a412283ab9beb6ce817;
+      - _atlas_session_data=N2k2eUxNbmlJaTRqUzhFam45N1UwRDN2K2NsbEcydXV3c2pPSXhkWnVxST0tLVNiTU9iOGMrM1pPS1JXU3NuWXk5eUE9PQ%3D%3D--6202b2b9295d2229fa925b9b6ee2fd9620b299c1;
         path=/
       X-Request-Id:
-      - 524d3d9d-8bd3-4e4b-b444-9572bf7849ad
+      - ae5e5988-6c4f-4a7c-a958-eafff1aa695a
       X-Runtime:
-      - '0.320831'
+      - '0.285334'
       Via:
       - 1.1 vegur
     body:
       encoding: ASCII-8BIT
-      string: '{"created_at":"2018-03-18T21:19:25.444Z","updated_at":"2018-03-18T21:19:25.444Z","tag":"atlas-ruby/new-box","name":"new-box","short_description":"A
+      string: '{"created_at":"2018-03-18T21:28:59.736Z","updated_at":"2018-03-18T21:28:59.736Z","tag":"atlas-ruby/new-public-box","name":"new-public-box","short_description":"A
         new box","description_html":"<p>A new box</p>\n","username":"atlas-ruby","description_markdown":"A
-        new box","private":true,"current_version":null,"versions":[]}'
+        new box","private":false,"current_version":null,"versions":[]}'
     http_version: 
-  recorded_at: Sun, 18 Mar 2018 21:19:25 GMT
+  recorded_at: Sun, 18 Mar 2018 21:28:59 GMT
 recorded_with: VCR 3.0.3
