@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://app.vagrantup.com/api/v1/box/nickcharlton/new-box?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box?access_token=test-token
     body:
       encoding: US-ASCII
       string: ''
@@ -47,12 +47,12 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"created_at":"2015-07-24T10:49:51.842Z","updated_at":"2015-07-24T10:49:51.842Z","tag":"nickcharlton/new-box","name":"new-box","short_description":"Something,
-        something.","description_html":null,"username":"nickcharlton","description_markdown":null,"private":false,"current_version":null,"versions":[]}'
+        something.","description_html":"<p>A new box</p>\n","username":"nickcharlton","description_markdown":"A new box","private":false,"current_version":null,"versions":[]}'
     http_version: 
   recorded_at: Fri, 24 Jul 2015 10:50:14 GMT
 - request:
     method: put
-    uri: https://app.vagrantup.com/api/v1/box/nickcharlton/new-box?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box?access_token=test-token
     body:
       encoding: UTF-8
       string: '{"box":{"name":"new-box","short_description":"A short description of

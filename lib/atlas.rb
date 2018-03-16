@@ -7,6 +7,7 @@ require 'atlas/configuration'
 require 'atlas/url_builder'
 require 'atlas/errors'
 require 'atlas/client'
+require "atlas/mixins/validations"
 require 'atlas/resource'
 require 'atlas/box_provider'
 require 'atlas/box_version'

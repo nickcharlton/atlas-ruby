@@ -14,6 +14,8 @@ module Atlas
                   :is_private, :current_version, :versions
     date_accessor :created_at, :updated_at
 
+    requires :username, :name, :short_description, :description
+
     # Find a box by it's tag.
     #
     # @param [String] tag the tag of the box.
@@ -106,6 +108,8 @@ module Atlas
     #
     # @return [Hash] Atlas response object.
     def save
+      validate!
+
       body = { box: to_hash }
 
       # versions are saved seperately

@@ -28,12 +28,22 @@ describe Atlas::Box do
     expect(box.username).to eq 'atlas-ruby'
   end
 
-  it 'can create a box' do
-    VCR.use_cassette('can_create_box') do
-      box = Atlas::Box.create(name: 'new-box')
+  it "can create a box" do
+    VCR.use_cassette("can_create_box") do
+      box = Atlas::Box.create(
+        name: "new-box",
+        username: "atlas-ruby",
+        short_description: "A new box",
+        description: "A new box",
+      )
 
-      expect(box).to be_a Atlas::Box
-      expect(box.name).to eq 'new-box'
+      expect(box).to be_a(Atlas::Box)
+      expect(box).to have_attributes(
+        name: "new-box",
+        username: "atlas-ruby",
+        short_description: "A new box",
+        description: "A new box",
+      )
     end
   end
 
@@ -41,7 +51,7 @@ describe Atlas::Box do
     VCR.use_cassette('can_update_box') do
       allow(Atlas.client).to receive(:put).and_call_original
 
-      box = Atlas::Box.find('nickcharlton/new-box')
+      box = Atlas::Box.find("atlas-ruby/new-box")
       original = box.short_description
 
       box.short_description = 'A short description of this box.'
@@ -54,7 +64,7 @@ describe Atlas::Box do
 
   it 'can create a version inside a box' do
     VCR.use_cassette('can_create_version_inside_box') do
-      box = Atlas::Box.find('atlas-ruby/example')
+      box = Atlas::Box.find("atlas-ruby/new-box")
 
       version = box.create_version(version: '1.1.0', description: 'New Box')
 
@@ -68,7 +78,7 @@ describe Atlas::Box do
     VCR.use_cassette('can_delete_box') do
       allow(Atlas.client).to receive(:delete).and_call_original
 
-      box = Atlas::Box.find('nickcharlton/new-box')
+      box = Atlas::Box.find("atlas-ruby/new-box")
 
       response = box.delete
 
