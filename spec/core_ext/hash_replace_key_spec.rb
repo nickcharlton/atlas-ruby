@@ -25,12 +25,20 @@ RSpec.describe HashReplaceKey do
       expect(original.object_id).to eq(new_hash.object_id)
     end
 
-    it "does nothing if the original key value is nil" do
+    it "does nothing if the original key is missing" do
       original = { foo: "bar" }
 
       new_hash = original.replace_key(:baz, :boo)
 
       expect(original).to eq(new_hash)
+    end
+
+    it "copies nil values where the key is present" do
+      original = { bar: nil }
+
+      new_hash = original.replace_key!(:bar, :another)
+
+      expect(new_hash).to include(another: nil)
     end
   end
 end

@@ -4,7 +4,7 @@ module HashReplaceKey
   end
 
   def replace_key!(original, replacement)
-    return self unless self[original]
+    return self unless has_key?(original)
 
     self[replacement] = delete(original)
 
