@@ -1,26 +1,26 @@
 require "spec_helper"
 
 describe Atlas::Resource do
-  context "using the date accessor" do
-    let(:date) { DateTime.new(2016, 02, 15, 14, 49, 54) }
-    let(:resource) do
-      class ExampleResource < Atlas::Resource
-        date_accessor :created_at
-      end
+  describe ".date_accessor" do
+    let(:date) { Time.new(2016, 2, 15, 14, 49, 54) }
+    let(:resource) { example_resource.new("tag") }
 
-      ExampleResource.new("tag")
-    end
-
-    it "will output a Date object" do
+    it "outputs a date object" do
       resource.created_at = date
 
       expect(resource.created_at).to eq date
     end
 
-    it "will convert a String to a Date" do
+    it "parses a string on assignment" do
       resource.created_at = "2016-02-15T14:49:54Z"
 
       expect(resource.created_at).to eq date
+    end
+  end
+
+  def example_resource
+    Class.new(Atlas::Resource) do
+      date_accessor :created_at
     end
   end
 end

@@ -36,7 +36,7 @@ module Atlas
       def date_writer(*args)
         args.each do |attr|
           define_method("#{attr}=".to_sym) do |date|
-            date = date.is_a?(String) ? DateTime.parse(date) : date
+            date = date.is_a?(String) ? Time.parse(date) : date
             instance_variable_set("@#{attr}", date)
           end
         end
