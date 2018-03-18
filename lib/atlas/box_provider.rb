@@ -7,6 +7,8 @@ module Atlas
     attr_accessor :name, :original_url, :download_url, :url
     date_accessor :created_at, :updated_at
 
+    requires :name
+
     # Find a provider by it's tag.
     #
     # @param [String] tag the tag of the provider.

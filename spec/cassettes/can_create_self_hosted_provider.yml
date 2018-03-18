@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: put
-    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.0.0/provider/vmware?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0/provider/vmware?access_token=test-token
     body:
       encoding: UTF-8
       string: '{"provider":{"name":"vmware","url":"http://boxes.nickcharlton.net.s3.amazonaws.com/trusty64-chef-vmware.box"}}'
     headers:
       User-Agent:
-      - Atlas-Ruby/1.2.0
+      - Atlas-Ruby/1.6.0
       Content-Type:
       - application/json
   response:
@@ -16,44 +16,47 @@ http_interactions:
       code: 404
       message: 
     headers:
-      Cache-Control:
-      - no-cache
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Fri, 02 Oct 2015 14:07:50 GMT
       Server:
-      - Apache
-      Status:
-      - 404 Not Found
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Powered-By:
-      - Phusion Passenger 5.0.16
-      X-Request-Id:
-      - 81193ac2-7fed-4c88-82a2-5fa070c5662e
-      X-Runtime:
-      - '0.063536'
-      X-XSS-Protection:
-      - 1; mode=block
+      - Cowboy
+      Date:
+      - Sun, 18 Mar 2018 22:59:11 GMT
       Connection:
       - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - _atlas_session_data=MnZ0WnNUOVExaFdRVW14NG80UDBBd0JZNG9TQWV4QTQ0VDhtN1NSQXZ6R2NoN0ppanBvcFd4NjhRNjBPNDhRbWJJYmVvVEhRYzFobDZxU2xvUVplQ2c9PS0tUUNqUGNRa3RDZWxBcW5Vb1pUcDhCUT09--b3baea4c0c8ab5ad4018d85d6573d1c4d5bd4d45;
+        path=/; expires=Tue, 17 Apr 2018 22:59:11 -0000; secure; HttpOnly
+      X-Request-Id:
+      - a364ad30-5012-4414-8a74-b158929db7f1
+      X-Runtime:
+      - '0.284851'
+      Via:
+      - 1.1 vegur
     body:
-      encoding: UTF-8
-      string: '{"errors":["Resource not found!"]}'
+      encoding: ASCII-8BIT
+      string: '{"errors":["Resource not found!"],"success":false}'
     http_version: 
-  recorded_at: Fri, 02 Oct 2015 14:07:51 GMT
+  recorded_at: Sun, 18 Mar 2018 22:59:11 GMT
 - request:
     method: post
-    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.0.0/providers?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0/providers?access_token=test-token
     body:
       encoding: UTF-8
       string: '{"provider":{"name":"vmware","url":"http://boxes.nickcharlton.net.s3.amazonaws.com/trusty64-chef-vmware.box"}}'
     headers:
       User-Agent:
-      - Atlas-Ruby/1.2.0
+      - Atlas-Ruby/1.6.0
       Content-Type:
       - application/json
   response:
@@ -61,35 +64,38 @@ http_interactions:
       code: 200
       message: 
     headers:
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Fri, 02 Oct 2015 14:07:51 GMT
-      ETag:
-      - '"2c29d1937fa780215f4306f967ceaa6f"'
       Server:
-      - Apache
-      Status:
-      - 200 OK
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Powered-By:
-      - Phusion Passenger 5.0.16
-      X-Request-Id:
-      - 6d2556b0-1bc0-4b37-a287-aa6dbaebef94
-      X-Runtime:
-      - '0.172749'
-      X-XSS-Protection:
-      - 1; mode=block
+      - Cowboy
+      Date:
+      - Sun, 18 Mar 2018 22:59:12 GMT
       Connection:
       - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"08ff4b79e88a0aa9303703cc9abe981b"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - _atlas_session_data=Vk5NWWxkS0tJYnB3TzZLWW56Q1NscUlTM1MzZHZLcHVmb09DV21IOUdkdz0tLUo1T0Q2OFhtOWw4V0Y3dExDc0p5V1E9PQ%3D%3D--58df9e3d483fac4dc537d2a3d9c5b33a30bca8b3;
+        path=/
+      X-Request-Id:
+      - c0fcb21b-d99b-4946-9eb3-040d5cdbd2fc
+      X-Runtime:
+      - '0.407721'
+      Via:
+      - 1.1 vegur
     body:
-      encoding: UTF-8
-      string: '{"name":"vmware","hosted":false,"hosted_token":null,"original_url":"http://boxes.nickcharlton.net.s3.amazonaws.com/trusty64-chef-vmware.box","created_at":"2015-10-02T14:07:51.787Z","updated_at":"2015-10-02T14:07:51.787Z","download_url":"https://app.vagrantup.com/atlas-ruby/boxes/example/versions/1.0.0/providers/vmware.box"}'
+      encoding: ASCII-8BIT
+      string: '{"name":"vmware","hosted":false,"hosted_token":null,"original_url":"http://boxes.nickcharlton.net.s3.amazonaws.com/trusty64-chef-vmware.box","created_at":"2018-03-18T22:59:12.467Z","updated_at":"2018-03-18T22:59:12.467Z","download_url":"https://vagrantcloud.com/atlas-ruby/boxes/new-box/versions/1.0.0/providers/vmware.box"}'
     http_version: 
-  recorded_at: Fri, 02 Oct 2015 14:07:51 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Sun, 18 Mar 2018 22:59:12 GMT
+recorded_with: VCR 3.0.3
