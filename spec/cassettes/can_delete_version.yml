@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.0.0?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0?access_token=test-token
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Atlas-Ruby/0.1.0
+      - Atlas-Ruby/1.6.0
       Content-Type:
       - application/json
   response:
@@ -16,49 +16,50 @@ http_interactions:
       code: 200
       message: 
     headers:
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Fri, 24 Jul 2015 11:31:33 GMT
-      ETag:
-      - '"f1e478d08548356de2332e64f890b243"'
       Server:
-      - Apache/2.2.22 (Ubuntu) Phusion_Passenger/5.0.10
-      Status:
-      - 200 OK
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Powered-By:
-      - Phusion Passenger 5.0.10
-      X-Request-Id:
-      - ff424a31-a23a-4ef2-8acc-7725dbaa6d57
-      X-Runtime:
-      - '0.062211'
-      X-XSS-Protection:
-      - 1; mode=block
-      Content-Length:
-      - '442'
+      - Cowboy
+      Date:
+      - Sun, 18 Mar 2018 22:28:25 GMT
       Connection:
       - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"8014e8b895743483b41e38e1a5707cdc"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - _atlas_session_data=MnQxUmNMbEpQSVcweWRiSWFmdVc2NW9BSTRxVk5FL2hzQ3VNSTIzaEM2ND0tLTBrQWZ0blU3UU0xblVpSUQvSC9HTWc9PQ%3D%3D--8471765c5cf330253abdda98de6beadb554ecf09;
+        path=/
+      X-Request-Id:
+      - 9ebd3444-6b1c-4465-a664-aa640b8b18d9
+      X-Runtime:
+      - '0.331515'
+      Via:
+      - 1.1 vegur
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: '{"version":"1.0.0","status":"unreleased","description_html":"<p>This
-        is a description</p>\n","description_markdown":"This is a description","created_at":"2015-07-24T11:25:32.437Z","updated_at":"2015-07-24T11:28:17.654Z","number":"1.0.0","release_url":"https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.0.0/release","revoke_url":"https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.0.0/revoke","providers":[]}'
+        is a description</p>\n","description_markdown":"This is a description","created_at":"2018-03-18T22:18:24.165Z","updated_at":"2018-03-18T22:22:57.666Z","number":"1.0.0","release_url":"https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0/release","revoke_url":"https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0/revoke","providers":[]}'
     http_version: 
-  recorded_at: Fri, 24 Jul 2015 11:31:45 GMT
+  recorded_at: Sun, 18 Mar 2018 22:28:26 GMT
 - request:
     method: delete
-    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.0.0?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0?access_token=test-token
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Atlas-Ruby/0.1.0
+      - Atlas-Ruby/1.6.0
       Content-Type:
       - application/json
   response:
@@ -66,36 +67,39 @@ http_interactions:
       code: 200
       message: 
     headers:
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Fri, 24 Jul 2015 11:31:34 GMT
-      ETag:
-      - '"f1e478d08548356de2332e64f890b243"'
       Server:
-      - Apache/2.2.22 (Ubuntu) Phusion_Passenger/5.0.10
-      Status:
-      - 200 OK
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Powered-By:
-      - Phusion Passenger 5.0.10
-      X-Request-Id:
-      - 39c830de-c9f1-4fff-9d27-eadefa4dbeb9
-      X-Runtime:
-      - '0.069174'
-      X-XSS-Protection:
-      - 1; mode=block
+      - Cowboy
+      Date:
+      - Sun, 18 Mar 2018 22:28:26 GMT
       Connection:
       - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"8014e8b895743483b41e38e1a5707cdc"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - _atlas_session_data=NHljQmFOZkxhN24vb0JOV0Rha1dPRUNHL1pGSmhFUERKL3h4bTdabWdFOD0tLW4yNHVRL2ZPMlRwb3FTVmdKVWpwcFE9PQ%3D%3D--83d1b0005adb50f83b1735a3951582ddb51cdcb2;
+        path=/
+      X-Request-Id:
+      - e880d30e-1a7f-4dd9-be73-d17cda503259
+      X-Runtime:
+      - '0.300262'
+      Via:
+      - 1.1 vegur
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: '{"version":"1.0.0","status":"unreleased","description_html":"<p>This
-        is a description</p>\n","description_markdown":"This is a description","created_at":"2015-07-24T11:25:32.437Z","updated_at":"2015-07-24T11:28:17.654Z","number":"1.0.0","release_url":"https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.0.0/release","revoke_url":"https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.0.0/revoke","providers":[]}'
+        is a description</p>\n","description_markdown":"This is a description","created_at":"2018-03-18T22:18:24.165Z","updated_at":"2018-03-18T22:22:57.666Z","number":"1.0.0","release_url":"https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0/release","revoke_url":"https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0/revoke","providers":[]}'
     http_version: 
-  recorded_at: Fri, 24 Jul 2015 11:31:46 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Sun, 18 Mar 2018 22:28:27 GMT
+recorded_with: VCR 3.0.3

@@ -9,7 +9,7 @@ describe Atlas::BoxVersion do
 
   it 'can fetch a version' do
     VCR.use_cassette('can_fetch_version') do
-      version = Atlas::BoxVersion.find('atlas-ruby/example/1.0.0')
+      version = Atlas::BoxVersion.find("atlas-ruby/new-box/1.0.0")
 
       expect(version).not_to be_nil
       expect(version.version).to eq '1.0.0'
@@ -30,7 +30,7 @@ describe Atlas::BoxVersion do
     VCR.use_cassette('can_create_version') do
       allow(Atlas.client).to receive(:post).and_call_original
 
-      version = Atlas::BoxVersion.create('atlas-ruby/example', version: '1.0.0')
+      version = Atlas::BoxVersion.create("atlas-ruby/new-box", version: "1.0.0")
 
       expect(version).to be_a Atlas::BoxVersion
       expect(version.version).to eq '1.0.0'
@@ -42,7 +42,7 @@ describe Atlas::BoxVersion do
     VCR.use_cassette('can_update_version') do
       allow(Atlas.client).to receive(:put).and_call_original
 
-      version = Atlas::BoxVersion.find('atlas-ruby/example/1.0.0')
+      version = Atlas::BoxVersion.find("atlas-ruby/new-box/1.0.0")
       original = version.description
 
       version.description = 'This is a description'
@@ -68,7 +68,7 @@ describe Atlas::BoxVersion do
     VCR.use_cassette('can_delete_version') do
       allow(Atlas.client).to receive(:delete).and_call_original
 
-      version = Atlas::BoxVersion.find('atlas-ruby/example/1.0.0')
+      version = Atlas::BoxVersion.find("atlas-ruby/new-box/1.0.0")
 
       response = version.delete
 
