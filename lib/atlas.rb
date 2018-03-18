@@ -1,5 +1,6 @@
 require 'excon'
 require 'json'
+require "core_ext/hash_replace_key"
 
 require 'atlas/version'
 require 'atlas/configuration'

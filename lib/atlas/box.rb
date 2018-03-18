@@ -61,8 +61,8 @@ module Atlas
     #
     # @return [Box] a new box object.
     def initialize(tag, hash = {})
-      hash['is_private'] = hash['private']
-      hash['description'] = hash['description_markdown']
+      hash.replace_key!("private", "is_private")
+      hash.replace_key!("description_markdown", "description")
 
       super(tag, hash)
     end
