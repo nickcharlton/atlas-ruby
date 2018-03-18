@@ -93,7 +93,7 @@ describe Atlas::BoxVersion do
     VCR.use_cassette('can_revoke_version') do
       allow(Atlas.client).to receive(:put).and_call_original
 
-      version = Atlas::BoxVersion.find('atlas-ruby/example/1.0.0')
+      version = Atlas::BoxVersion.find("atlas-ruby/new-box/1.0.0")
       version.revoke
 
       expect(version.status).to eq 'revoked'
