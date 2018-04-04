@@ -55,7 +55,7 @@ describe Atlas::BoxVersion do
 
   it 'can create a provider inside a version' do
     VCR.use_cassette('can_create_provider_inside_version') do
-      version = Atlas::BoxVersion.find('atlas-ruby/example/1.1.0')
+      version = Atlas::BoxVersion.find("atlas-ruby/new-box/1.1.0")
 
       provider = version.create_provider(name: 'virtualbox')
 
