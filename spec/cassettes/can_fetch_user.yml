@@ -8,48 +8,49 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Atlas-Ruby/0.1.0
+      - Atlas-Ruby/1.6.0
       Content-Type:
-      - application/x-www-form-urlencoded
+      - application/json
   response:
     status:
       code: 200
       message: 
     headers:
-      cache-control:
-      - max-age=0, private, must-revalidate
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Wed, 13 May 2015 11:38:16 GMT
-      etag:
-      - '"ed637d0f4c30e1a5c66901df5eaad912"'
       Server:
-      - Apache/2.2.22 (Ubuntu) Phusion_Passenger/5.0.6
-      Status:
-      - 200 OK
-      x-content-type-options:
-      - nosniff
-      x-frame-options:
-      - SAMEORIGIN
-      X-Powered-By:
-      - Phusion Passenger 5.0.6
-      x-request-id:
-      - 1a55ff7c-1136-434c-9ce7-6902bd5db005
-      x-runtime:
-      - '0.658763'
-      x-xss-protection:
-      - 1; mode=block
-      Content-Length:
-      - '397'
+      - Cowboy
+      Date:
+      - Wed, 14 Feb 2018 16:52:38 GMT
       Connection:
       - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"80ba237c68ed70f8a37d1aeb0fad8c3a"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - _atlas_session_data=SVRmblZxMjNJbjZWWkxxaU1RRWpXYVVnSmU0bTM1YTBET21LTW9zOGV0VT0tLVlaNnJMZ1phYXo2dEZmTmZrVjhqNnc9PQ%3D%3D--f36f5b94fca1584a3682b7a2078defd51a3f7912;
+        path=/
+      X-Request-Id:
+      - 1daeca3d-3e75-4852-9acb-5de915286a3b
+      X-Runtime:
+      - '1.088254'
+      Via:
+      - 1.1 vegur
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: '{"username":"atlas-ruby","avatar_url":"https://www.gravatar.com/avatar/db083f712142474c96cb2b828d6ad8c9?s=460&d=mm","profile_html":"<p>A
         test account for the <a href=\"https://github.com/nickcharlton/atlas-ruby\">Atlas
         Ruby client</a>.</p>\n","profile_markdown":"A test account for the [Atlas
         Ruby client][ruby-client].\r\n\r\n[ruby-client]: https://github.com/nickcharlton/atlas-ruby","boxes":[]}'
     http_version: 
-  recorded_at: Wed, 13 May 2015 11:38:17 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Wed, 14 Feb 2018 16:52:39 GMT
+recorded_with: VCR 3.0.3
