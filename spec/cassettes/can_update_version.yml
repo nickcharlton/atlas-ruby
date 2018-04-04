@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.0.0?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0?access_token=test-token
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Atlas-Ruby/0.1.0
+      - Atlas-Ruby/1.6.0
       Content-Type:
       - application/json
   response:
@@ -16,49 +16,51 @@ http_interactions:
       code: 200
       message: 
     headers:
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Fri, 24 Jul 2015 11:28:15 GMT
-      ETag:
-      - '"52dccf982a22340f074c4a9fa80227e2"'
       Server:
-      - Apache/2.2.22 (Ubuntu) Phusion_Passenger/5.0.10
-      Status:
-      - 200 OK
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Powered-By:
-      - Phusion Passenger 5.0.10
-      X-Request-Id:
-      - cd558aea-129c-47f0-8134-25b943e68816
-      X-Runtime:
-      - '0.068053'
-      X-XSS-Protection:
-      - 1; mode=block
-      Content-Length:
-      - '395'
+      - Cowboy
+      Date:
+      - Sun, 18 Mar 2018 22:22:56 GMT
       Connection:
       - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"629f12137fa7830981b9ca0fbd4c09af"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - _atlas_session_data=YlJ4QVlUaUlMR2FpTHNvOXBRV3lvcHQwaWpaQ0U3U1AzaWYvRVk5SGZCWT0tLTJvWlVrZlNXZWVLYy83aEtJTkV4Z0E9PQ%3D%3D--080dde7f967273a82217c993b6ea5cf26ed5875c;
+        path=/
+      X-Request-Id:
+      - b098bf76-d1ab-4075-b0a4-93bf3b6f3409
+      X-Runtime:
+      - '0.314758'
+      Via:
+      - 1.1 vegur
     body:
-      encoding: UTF-8
-      string: '{"version":"1.0.0","status":"unreleased","description_html":null,"description_markdown":null,"created_at":"2015-07-24T11:25:32.437Z","updated_at":"2015-07-24T11:25:32.437Z","number":"1.0.0","release_url":"https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.0.0/release","revoke_url":"https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.0.0/revoke","providers":[]}'
+      encoding: ASCII-8BIT
+      string: '{"version":"1.0.0","status":"unreleased","description_html":null,"description_markdown":null,"created_at":"2018-03-18T22:18:24.165Z","updated_at":"2018-03-18T22:18:24.165Z","number":"1.0.0","release_url":"https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0/release","revoke_url":"https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0/revoke","providers":[]}'
     http_version: 
-  recorded_at: Fri, 24 Jul 2015 11:28:28 GMT
+  recorded_at: Sun, 18 Mar 2018 22:22:56 GMT
 - request:
     method: put
-    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.0.0?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0?access_token=test-token
     body:
       encoding: UTF-8
-      string: '{"version":{"version":"1.0.0","status":"unreleased","description":"This
-        is a description"}}'
+      string: '{"version":{"version":"1.0.0","status":"unreleased","created_at":"2018-03-18
+        22:18:24 UTC","updated_at":"2018-03-18 22:18:24 UTC","description":"This is
+        a description"}}'
     headers:
       User-Agent:
-      - Atlas-Ruby/0.1.0
+      - Atlas-Ruby/1.6.0
       Content-Type:
       - application/json
   response:
@@ -66,38 +68,39 @@ http_interactions:
       code: 200
       message: 
     headers:
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Fri, 24 Jul 2015 11:28:17 GMT
-      ETag:
-      - '"f1e478d08548356de2332e64f890b243"'
       Server:
-      - Apache/2.2.22 (Ubuntu) Phusion_Passenger/5.0.10
-      Status:
-      - 200 OK
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Powered-By:
-      - Phusion Passenger 5.0.10
-      X-Request-Id:
-      - faac93cb-0d83-4d8a-b606-dbe49fa4aedd
-      X-Runtime:
-      - '0.099334'
-      X-XSS-Protection:
-      - 1; mode=block
-      Content-Length:
-      - '442'
+      - Cowboy
+      Date:
+      - Sun, 18 Mar 2018 22:22:57 GMT
       Connection:
       - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"8014e8b895743483b41e38e1a5707cdc"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - _atlas_session_data=MVVHcjNJYkk0RWhlcXZ1VldLV2FCcVMwcGp2V3Vaa1RkdGhqejJmejZ4UT0tLTZTR21oSFFoOVlXc2tVUEJGdThlK3c9PQ%3D%3D--4e2749590bb1b2788667f61a92f12ba02c086cfe;
+        path=/
+      X-Request-Id:
+      - aedf9cb8-d55c-4731-97c6-6a6ad9aa0337
+      X-Runtime:
+      - '0.423712'
+      Via:
+      - 1.1 vegur
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: '{"version":"1.0.0","status":"unreleased","description_html":"<p>This
-        is a description</p>\n","description_markdown":"This is a description","created_at":"2015-07-24T11:25:32.437Z","updated_at":"2015-07-24T11:28:17.654Z","number":"1.0.0","release_url":"https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.0.0/release","revoke_url":"https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.0.0/revoke","providers":[]}'
+        is a description</p>\n","description_markdown":"This is a description","created_at":"2018-03-18T22:18:24.165Z","updated_at":"2018-03-18T22:22:57.666Z","number":"1.0.0","release_url":"https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0/release","revoke_url":"https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0/revoke","providers":[]}'
     http_version: 
-  recorded_at: Fri, 24 Jul 2015 11:28:29 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Sun, 18 Mar 2018 22:22:57 GMT
+recorded_with: VCR 3.0.3

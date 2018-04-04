@@ -12,6 +12,8 @@ module Atlas
     attr_accessor :version, :description, :status, :providers
     date_accessor :created_at, :updated_at
 
+    requires :version
+
     # Find a version by it's tag.
     #
     # @param [String] tag the tag of the version.
@@ -46,9 +48,7 @@ module Atlas
     # @param attr [String] :version The version number.
     # @param attr [String] :description Description of the box.
     def initialize(tag, hash = {})
-      if hash.key? 'description_markdown'
-        hash['description'] = hash['description_markdown']
-      end
+      hash.replace_key!("description_markdown", "description")
 
       super(tag, hash)
     end
