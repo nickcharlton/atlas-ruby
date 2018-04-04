@@ -2,51 +2,52 @@
 http_interactions:
 - request:
     method: get
-    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/example/version/1.0.0/provider/vmware_desktop?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0/provider/virtualbox?access_token=test-token
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Atlas-Ruby/0.1.0
+      - Atlas-Ruby/1.6.0
       Content-Type:
-      - application/x-www-form-urlencoded
+      - application/json
   response:
     status:
       code: 200
       message: 
     headers:
-      cache-control:
-      - max-age=0, private, must-revalidate
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Wed, 13 May 2015 14:47:45 GMT
-      etag:
-      - '"c057159426fabba72316010a40eca75f"'
       Server:
-      - Apache/2.2.22 (Ubuntu) Phusion_Passenger/5.0.6
-      Status:
-      - 200 OK
-      x-content-type-options:
-      - nosniff
-      x-frame-options:
-      - SAMEORIGIN
-      X-Powered-By:
-      - Phusion Passenger 5.0.6
-      x-request-id:
-      - a47f12dd-aa59-43d7-8f25-9245d06ce354
-      x-runtime:
-      - '1.492170'
-      x-xss-protection:
-      - 1; mode=block
-      Content-Length:
-      - '329'
+      - Cowboy
+      Date:
+      - Sun, 18 Mar 2018 22:50:36 GMT
       Connection:
       - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"454c937cfe2f7308871bd1b6e60ee33a"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - _atlas_session_data=Z1E5K0lyTnZ3a3RBT1JNWjcrdEdtMHFzOGJNdDB3ZUFQMmcyMVNZb0Y5ND0tLTA5MDQ4SCswRDI1bGRkMU9NK1NPYXc9PQ%3D%3D--584f2cd7a25f6f046b15b8fa66907cc5a0b05551;
+        path=/
+      X-Request-Id:
+      - a5e2a0d7-e6ba-41f0-8c57-9206c36120fb
+      X-Runtime:
+      - '0.252320'
+      Via:
+      - 1.1 vegur
     body:
-      encoding: UTF-8
-      string: '{"name":"vmware_desktop","hosted":false,"hosted_token":null,"original_url":"http://example.com/boxes/example/1.0.0/vmware_desktop.box","created_at":"2015-05-13T14:45:23.008Z","updated_at":"2015-05-13T14:45:23.008Z","download_url":"https://app.vagrantup.com/atlas-ruby/boxes/example/versions/1.0.0/providers/vmware_desktop.box"}'
+      encoding: ASCII-8BIT
+      string: '{"name":"virtualbox","hosted":true,"hosted_token":null,"original_url":null,"created_at":"2018-03-18T22:47:14.821Z","updated_at":"2018-03-18T22:47:14.821Z","download_url":"https://vagrantcloud.com/atlas-ruby/boxes/new-box/versions/1.0.0/providers/virtualbox.box"}'
     http_version: 
-  recorded_at: Wed, 13 May 2015 14:47:46 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Sun, 18 Mar 2018 22:50:37 GMT
+recorded_with: VCR 3.0.3

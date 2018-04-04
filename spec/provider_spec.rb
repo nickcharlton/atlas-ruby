@@ -10,10 +10,11 @@ describe Atlas::BoxProvider do
   it 'can fetch a provider' do
     VCR.use_cassette('can_fetch_provider') do
       provider = Atlas::BoxProvider.find(
-        'atlas-ruby/example/1.0.0/vmware_desktop')
+        "atlas-ruby/new-box/1.0.0/virtualbox",
+      )
 
       expect(provider).not_to be_nil
-      expect(provider.name).to eq 'vmware_desktop'
+      expect(provider.name).to eq("virtualbox")
     end
   end
 
@@ -31,8 +32,8 @@ describe Atlas::BoxProvider do
     VCR.use_cassette('can_create_provider') do
       allow(Atlas.client).to receive(:post).and_call_original
 
-      provider = Atlas::BoxProvider.create('atlas-ruby/example/1.0.0',
-                                           name: 'virtualbox')
+      provider = Atlas::BoxProvider.create("atlas-ruby/new-box/1.0.0",
+                                           name: "virtualbox")
 
       expect(provider).to be_a Atlas::BoxProvider
       expect(provider.name).to eq 'virtualbox'
@@ -46,8 +47,8 @@ describe Atlas::BoxProvider do
 
       url = 'http://boxes.nickcharlton.net.s3.amazonaws.com/'\
             'trusty64-chef-vmware.box'
-      provider = Atlas::BoxProvider.create('atlas-ruby/example/1.0.0',
-                                           name: 'vmware',
+      provider = Atlas::BoxProvider.create("atlas-ruby/new-box/1.0.0",
+                                           name: "vmware",
                                            url: url)
 
       expect(provider).to be_a Atlas::BoxProvider
@@ -62,7 +63,7 @@ describe Atlas::BoxProvider do
       allow(Atlas.client).to receive(:put).and_call_original
       allow(Atlas.client).to receive(:post)
 
-      provider = Atlas::BoxProvider.find('atlas-ruby/example/1.0.0/virtualbox')
+      provider = Atlas::BoxProvider.find("atlas-ruby/new-box/1.0.0/virtualbox")
 
       provider.name = 'vmware_desktop'
       provider.save
@@ -78,7 +79,7 @@ describe Atlas::BoxProvider do
       allow(Excon).to receive(:put)
 
       file = File.open("spec/support/empty_upload_file")
-      provider = Atlas::BoxProvider.find("atlas-ruby/example/1.0.0/parallels")
+      provider = Atlas::BoxProvider.find("atlas-ruby/new-box/1.0.0/parallels")
 
       provider.upload(file)
 
@@ -90,7 +91,7 @@ describe Atlas::BoxProvider do
     VCR.use_cassette('can_delete_provider') do
       allow(Atlas.client).to receive(:delete).and_call_original
 
-      provider = Atlas::BoxProvider.find('atlas-ruby/example/1.0.0/virtualbox')
+      provider = Atlas::BoxProvider.find("atlas-ruby/new-box/1.0.0/virtualbox")
 
       response = provider.delete
 
