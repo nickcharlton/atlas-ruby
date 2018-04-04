@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Atlas-Ruby/0.1.0
+      - Atlas-Ruby/1.6.0
       Content-Type:
       - application/json
   response:
@@ -16,50 +16,54 @@ http_interactions:
       code: 200
       message: 
     headers:
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Fri, 24 Jul 2015 10:50:02 GMT
-      ETag:
-      - '"4b33fd02a4d8013b653720a24cb56629"'
       Server:
-      - Apache/2.2.22 (Ubuntu) Phusion_Passenger/5.0.10
-      Status:
-      - 200 OK
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Powered-By:
-      - Phusion Passenger 5.0.10
-      X-Request-Id:
-      - cfc65006-1465-4f33-8588-7be557c6d3cc
-      X-Runtime:
-      - '0.081708'
-      X-XSS-Protection:
-      - 1; mode=block
-      Content-Length:
-      - '302'
+      - Cowboy
+      Date:
+      - Sun, 18 Mar 2018 21:36:50 GMT
       Connection:
       - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"e311e27a7f8fd0450f7250afafa8ec51"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - _atlas_session_data=MkNIcmxxUzNpUVEzZ3V3M3hpaXJuMm1DRnNmNFlteC9ia2FnNkVuR1Urcz0tLVRKZjhRYkdyL2ZndGR4QTNuUjloeWc9PQ%3D%3D--925e13f0b8eef8cfd8cccb9282a89ca7b3e93531;
+        path=/
+      X-Request-Id:
+      - 722af3d3-be4f-4d9e-86ba-f71595979160
+      X-Runtime:
+      - '0.256048'
+      Via:
+      - 1.1 vegur
     body:
-      encoding: UTF-8
-      string: '{"created_at":"2015-07-24T10:49:51.842Z","updated_at":"2015-07-24T10:49:51.842Z","tag":"nickcharlton/new-box","name":"new-box","short_description":"Something,
-        something.","description_html":"<p>A new box</p>\n","username":"nickcharlton","description_markdown":"A new box","private":false,"current_version":null,"versions":[]}'
+      encoding: ASCII-8BIT
+      string: '{"created_at":"2018-03-18T21:19:25.444Z","updated_at":"2018-03-18T21:19:25.444Z","tag":"atlas-ruby/new-box","name":"new-box","short_description":"A
+        new box","description_html":"<p>A new box</p>\n","username":"atlas-ruby","description_markdown":"A
+        new box","private":true,"current_version":null,"versions":[]}'
     http_version: 
-  recorded_at: Fri, 24 Jul 2015 10:50:14 GMT
+  recorded_at: Sun, 18 Mar 2018 21:36:50 GMT
 - request:
     method: put
     uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box?access_token=test-token
     body:
       encoding: UTF-8
-      string: '{"box":{"name":"new-box","short_description":"A short description of
-        this box.","username":"nickcharlton","current_version":null,"is_private":false,"description":null}}'
+      string: '{"box":{"created_at":"2018-03-18 21:19:25 UTC","updated_at":"2018-03-18
+        21:19:25 UTC","name":"new-box","short_description":"A short description of
+        this box.","username":"atlas-ruby","current_version":null,"description":"A
+        new box"}}'
     headers:
       User-Agent:
-      - Atlas-Ruby/0.1.0
+      - Atlas-Ruby/1.6.0
       Content-Type:
       - application/json
   response:
@@ -67,38 +71,40 @@ http_interactions:
       code: 200
       message: 
     headers:
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Fri, 24 Jul 2015 10:50:03 GMT
-      ETag:
-      - '"f288f525d60709042450f794af7efbe2"'
       Server:
-      - Apache/2.2.22 (Ubuntu) Phusion_Passenger/5.0.10
-      Status:
-      - 200 OK
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Powered-By:
-      - Phusion Passenger 5.0.10
-      X-Request-Id:
-      - cf3ae6df-fddc-4f52-8b77-116a4745726e
-      X-Runtime:
-      - '0.081042'
-      X-XSS-Protection:
-      - 1; mode=block
-      Content-Length:
-      - '313'
+      - Cowboy
+      Date:
+      - Sun, 18 Mar 2018 21:36:51 GMT
       Connection:
       - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"0b574002c0aa44c2ace28605dffb8624"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - _atlas_session_data=aGxoUDNPUkh3dW5YZXpTanVXVTRhdFlRWTB3ZTBScW43UjJQaHJ0ajNlRT0tLXQwNlNuQVVtMEtDN2I4SFRTM3owcmc9PQ%3D%3D--46bcd493ee0314ccd1bfd67cb01d8850b028bfba;
+        path=/
+      X-Request-Id:
+      - 26a08d34-a7dc-4e3f-9107-0740c1346384
+      X-Runtime:
+      - '0.282881'
+      Via:
+      - 1.1 vegur
     body:
-      encoding: UTF-8
-      string: '{"created_at":"2015-07-24T10:49:51.842Z","updated_at":"2015-07-24T10:49:51.842Z","tag":"nickcharlton/new-box","name":"new-box","short_description":"A
-        short description of this box.","description_html":null,"username":"nickcharlton","description_markdown":null,"private":false,"current_version":null,"versions":[]}'
+      encoding: ASCII-8BIT
+      string: '{"created_at":"2018-03-18T21:19:25.444Z","updated_at":"2018-03-18T21:19:25.444Z","tag":"atlas-ruby/new-box","name":"new-box","short_description":"A
+        short description of this box.","description_html":"<p>A new box</p>\n","username":"atlas-ruby","description_markdown":"A
+        new box","private":true,"current_version":null,"versions":[]}'
     http_version: 
-  recorded_at: Fri, 24 Jul 2015 10:50:15 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Sun, 18 Mar 2018 21:36:51 GMT
+recorded_with: VCR 3.0.3

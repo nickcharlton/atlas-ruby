@@ -8,46 +8,47 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Atlas-Ruby/0.1.0
+      - Atlas-Ruby/1.6.0
       Content-Type:
-      - application/x-www-form-urlencoded
+      - application/json
   response:
     status:
       code: 200
       message: 
     headers:
-      cache-control:
-      - max-age=0, private, must-revalidate
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Wed, 13 May 2015 14:33:32 GMT
-      etag:
-      - '"87bab070107e515e7f57bc7392e8cea5"'
       Server:
-      - Apache/2.2.22 (Ubuntu) Phusion_Passenger/5.0.6
-      Status:
-      - 200 OK
-      x-content-type-options:
-      - nosniff
-      x-frame-options:
-      - SAMEORIGIN
-      X-Powered-By:
-      - Phusion Passenger 5.0.6
-      x-request-id:
-      - 535b572c-73a0-47fb-8839-db591c1f07cf
-      x-runtime:
-      - '0.595915'
-      x-xss-protection:
-      - 1; mode=block
-      Content-Length:
-      - '292'
+      - Cowboy
+      Date:
+      - Wed, 14 Feb 2018 17:12:32 GMT
       Connection:
       - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"70992750ad3a2dcce1b754fb99d9932a"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - _atlas_session_data=K2JaSjFHSWh4eFBsdlVLRlRYVXp2MmM4MmtOb1RFQzZmMlhXVXdzY0R5Zz0tLWxsT3Q0Q1k2aE0xSHF0TzN2a00vSlE9PQ%3D%3D--5e529970594aff341492873ba09bc732bf1db7a9;
+        path=/
+      X-Request-Id:
+      - 54cace63-8ff8-4588-802c-b88a11e201ee
+      X-Runtime:
+      - '0.341584'
+      Via:
+      - 1.1 vegur
     body:
-      encoding: UTF-8
-      string: '{"created_at":"2015-05-13T14:29:39.093Z","updated_at":"2015-05-13T14:29:39.093Z","tag":"atlas-ruby/example","name":"example","short_description":"An
+      encoding: ASCII-8BIT
+      string: '{"created_at":"2015-05-13T14:29:39.093Z","updated_at":"2018-02-14T07:42:23.230Z","tag":"atlas-ruby/example","name":"example","short_description":"An
         example box.","description_html":null,"username":"atlas-ruby","description_markdown":null,"private":false,"current_version":null,"versions":[]}'
     http_version: 
-  recorded_at: Wed, 13 May 2015 14:33:33 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Wed, 14 Feb 2018 17:12:33 GMT
+recorded_with: VCR 3.0.3

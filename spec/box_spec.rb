@@ -28,22 +28,46 @@ describe Atlas::Box do
     expect(box.username).to eq 'atlas-ruby'
   end
 
-  it "can create a box" do
-    VCR.use_cassette("can_create_box") do
-      box = Atlas::Box.create(
-        name: "new-box",
-        username: "atlas-ruby",
-        short_description: "A new box",
-        description: "A new box",
-      )
+  describe "#create" do
+    it "creates a private box by default" do
+      VCR.use_cassette("can_create_box") do
+        box = Atlas::Box.create(
+          name: "new-box",
+          username: "atlas-ruby",
+          short_description: "A new box",
+          description: "A new box",
+        )
 
-      expect(box).to be_a(Atlas::Box)
-      expect(box).to have_attributes(
-        name: "new-box",
-        username: "atlas-ruby",
-        short_description: "A new box",
-        description: "A new box",
-      )
+        expect(box).to be_a(Atlas::Box)
+        expect(box).to have_attributes(
+          name: "new-box",
+          username: "atlas-ruby",
+          short_description: "A new box",
+          description: "A new box",
+          private: true,
+        )
+      end
+    end
+
+    it "adjusts the private call when creating a public box" do
+      VCR.use_cassette("can_create_public_box") do
+        box = Atlas::Box.create(
+          name: "new-public-box",
+          username: "atlas-ruby",
+          short_description: "A new box",
+          description: "A new box",
+          private: false,
+        )
+
+        expect(box).to be_a(Atlas::Box)
+        expect(box).to have_attributes(
+          name: "new-public-box",
+          username: "atlas-ruby",
+          short_description: "A new box",
+          description: "A new box",
+          private: false,
+        )
+      end
     end
   end
 
