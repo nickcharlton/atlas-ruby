@@ -1,8 +1,11 @@
 require "date"
 
 module Atlas
-  # Base class for representing resources.
   class Resource
+    include Validations
+
+    INTERNAL_ATTRIBUTE_KEYS = %w(@tag @url_builder).freeze
+
     attr_accessor :tag, :url_builder
 
     def initialize(tag, hash = {})
@@ -19,12 +22,14 @@ module Atlas
       response.each { |k, v| send("#{k}=", v) if respond_to?("#{k}=") }
     end
 
-    def to_hash
-      attrs = instance_variables.collect do |v|
-        %w(@tag @url_builder).include?(v.to_s) ? next : v.to_s.sub(/^@/, '')
+    def attributes
+      instance_variables.map do |v|
+        INTERNAL_ATTRIBUTE_KEYS.include?(v.to_s) ? next : v.to_s.sub(/^@/, "")
       end.compact!
+    end
 
-      Hash[attrs.select { |v| respond_to? v }.map { |v| [v.to_sym, send(v)] }]
+    def to_hash
+      Hash[attributes.map { |v| [v.to_sym, send(v)] }]
     end
 
     def inspect

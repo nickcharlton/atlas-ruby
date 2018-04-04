@@ -4,6 +4,9 @@ module Atlas
     # Base error for all other gem errors.
     class AtlasError < StandardError; end
 
+    # Raised when a resource cannot be validated.
+    class InvalidResourceError < AtlasError; end
+
     # Raised when incorrect arguments are provided to a method.
     class ArgumentError < AtlasError; end
 
