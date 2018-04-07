@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Atlas::BoxProvider do
   before do
     Atlas.configure do |config|
-      config.access_token = 'test-token'
+      config.token = "test-token"
     end
   end
 

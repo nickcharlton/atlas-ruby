@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/new-public-box?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/new-public-box
     body:
       encoding: UTF-8
       string: '{"box":{"name":"new-public-box","username":"atlas-ruby","short_description":"A
@@ -12,6 +12,8 @@ http_interactions:
       - Atlas-Ruby/1.6.0
       Content-Type:
       - application/json
+      Authorization:
+      - Bearer test-token
   response:
     status:
       code: 404
@@ -51,7 +53,7 @@ http_interactions:
   recorded_at: Sun, 18 Mar 2018 21:28:52 GMT
 - request:
     method: post
-    uri: https://app.vagrantup.com/api/v1/boxes?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/boxes
     body:
       encoding: UTF-8
       string: '{"box":{"name":"new-public-box","username":"atlas-ruby","short_description":"A
@@ -61,6 +63,8 @@ http_interactions:
       - Atlas-Ruby/1.6.0
       Content-Type:
       - application/json
+      Authorization:
+      - Bearer test-token
   response:
     status:
       code: 200

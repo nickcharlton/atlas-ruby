@@ -19,6 +19,6 @@ module Atlas
   attr_accessor :client
 
   def self.client
-    @client ||= Client.new(access_token: configuration.access_token)
+    @client ||= Client.new(token: configuration.token)
   end
 end

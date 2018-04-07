@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0/provider/virtualbox?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0/provider/virtualbox
     body:
       encoding: US-ASCII
       string: ''
@@ -11,6 +11,8 @@ http_interactions:
       - Atlas-Ruby/1.6.0
       Content-Type:
       - application/json
+      Authorization:
+      - Bearer test-token
   response:
     status:
       code: 200
@@ -52,7 +54,7 @@ http_interactions:
   recorded_at: Sun, 18 Mar 2018 23:07:55 GMT
 - request:
     method: delete
-    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0/provider/virtualbox?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0/provider/virtualbox
     body:
       encoding: US-ASCII
       string: ''
@@ -61,6 +63,8 @@ http_interactions:
       - Atlas-Ruby/1.6.0
       Content-Type:
       - application/json
+      Authorization:
+      - Bearer test-token
   response:
     status:
       code: 200
