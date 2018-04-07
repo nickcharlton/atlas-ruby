@@ -27,7 +27,7 @@ Or install it yourself as:
 ```ruby
 # first, login with the token from Atlas
 Atlas.configure do |config|
-  config.access_token = 'token'
+  config.token = "test-token"
 end
 
 # then you can load in users (creating, updating, etc isn't supported by Atlas)

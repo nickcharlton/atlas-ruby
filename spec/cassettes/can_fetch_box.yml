@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/example?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/example
     body:
       encoding: US-ASCII
       string: ''
@@ -11,6 +11,8 @@ http_interactions:
       - Atlas-Ruby/1.6.0
       Content-Type:
       - application/json
+      Authorization:
+      - Bearer test-token
   response:
     status:
       code: 200

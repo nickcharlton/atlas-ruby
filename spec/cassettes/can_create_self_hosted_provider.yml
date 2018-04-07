@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0/provider/vmware?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0/provider/vmware
     body:
       encoding: UTF-8
       string: '{"provider":{"name":"vmware","url":"http://boxes.nickcharlton.net.s3.amazonaws.com/trusty64-chef-vmware.box"}}'
@@ -11,6 +11,8 @@ http_interactions:
       - Atlas-Ruby/1.6.0
       Content-Type:
       - application/json
+      Authorization:
+      - Bearer test-token
   response:
     status:
       code: 404
@@ -50,7 +52,7 @@ http_interactions:
   recorded_at: Sun, 18 Mar 2018 22:59:11 GMT
 - request:
     method: post
-    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0/providers?access_token=test-token
+    uri: https://app.vagrantup.com/api/v1/box/atlas-ruby/new-box/version/1.0.0/providers
     body:
       encoding: UTF-8
       string: '{"provider":{"name":"vmware","url":"http://boxes.nickcharlton.net.s3.amazonaws.com/trusty64-chef-vmware.box"}}'
@@ -59,6 +61,8 @@ http_interactions:
       - Atlas-Ruby/1.6.0
       Content-Type:
       - application/json
+      Authorization:
+      - Bearer test-token
   response:
     status:
       code: 200

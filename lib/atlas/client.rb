@@ -10,7 +10,7 @@ module Atlas
 
     def initialize(opts = {})
       @url = opts[:url] || 'https://app.vagrantup.com/'
-      @access_token = opts[:access_token]
+      @token = opts[:token]
     end
 
     %w(get put post delete).each do |m|
@@ -21,6 +21,8 @@ module Atlas
 
     private
 
+    attr_reader :token
+
     def request(method, path, opts = {}) # rubocop:disable AbcSize, MethodLength
       body, query, headers = parse_opts(opts)
 
@@ -28,7 +30,7 @@ module Atlas
       headers.merge!(DEFAULT_HEADERS)
 
       # set the access token
-      query.merge!(access_token: @access_token)
+      headers["Authorization"] = "Bearer #{token}"
 
       connection = Excon.new(@url)
       response = connection.request(expects: [200, 201], method: method,
