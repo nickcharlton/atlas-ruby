@@ -2,6 +2,13 @@
 
 [![Build Status](https://travis-ci.org/nickcharlton/atlas-ruby.svg?branch=master)](https://travis-ci.org/nickcharlton/atlas-ruby)
 
+_**WARNING**: 2.0.0 is the last major release of this gem. [Atlas became
+Vagrant Cloud on 2017-06-30][announcement], because of this, the name makes
+less sense than it did. Additionally, HashiCorp have their own gem:
+[hashicorp/vagrant_cloud](https://github.com/hashicorp/vagrant_cloud)._
+
+[announcement]: https://www.hashicorp.com/blog/vagrant-cloud-migration-announcement
+
 Atlas is a Ruby client for [Hashicorp][]'s [Atlas][].
 
 ## Installation

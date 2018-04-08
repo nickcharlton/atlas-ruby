@@ -1,5 +1,31 @@
 # CHANGELOG
 
+## 2.0.0 (07/04/2018)
+
+_**WARNING**: This will be the last major release of this gem. I recommend
+using [hashicorp/vagrant_cloud](https://github.com/hashicorp/vagrant_cloud) as
+it's maintained by HashiCorp._
+
+* Use headers, not query arguments for the token ([#23][]).
+* Deprecate the `access_token` configuration option ([#23][]).
+* Refresh cassettes ([#16][], [#17][], [#18][], [#19][], [#20][], [#21][],
+  [#22][]).
+* Implement validations for required attributes ([#14][]).
+* Improve `date_accessor` specs ([#13][]).
+* Rename keys in-place to avoid assigning nil ([#12][]).
+
+[#12]: https://github.com/nickcharlton/atlas-ruby/pull/12
+[#13]: https://github.com/nickcharlton/atlas-ruby/pull/13
+[#14]: https://github.com/nickcharlton/atlas-ruby/pull/14
+[#16]: https://github.com/nickcharlton/atlas-ruby/pull/16
+[#17]: https://github.com/nickcharlton/atlas-ruby/pull/17
+[#18]: https://github.com/nickcharlton/atlas-ruby/pull/18
+[#19]: https://github.com/nickcharlton/atlas-ruby/pull/19
+[#20]: https://github.com/nickcharlton/atlas-ruby/pull/20
+[#21]: https://github.com/nickcharlton/atlas-ruby/pull/21
+[#22]: https://github.com/nickcharlton/atlas-ruby/pull/22
+[#23]: https://github.com/nickcharlton/atlas-ruby/pull/23
+
 ## 1.6.0 (31/07/2016)
 
 * Switch to use the new Atlas API URL ([#11][])
